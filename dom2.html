@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div ul li{
+            color:red;
+        }
+    </style>
+
+
+    
+</head>
+<body>
+    
+
+<div id="div-id">This is div1</div>
+<div>
+<ul style="width: 100%;">
+    <li>Burger</li>
+    <button>addis</button>
+    <li>Apple</li>
+    <li>Orange</li>
+    <li>Lemon</li>
+    <input type="text" value="" style="display:block;">
+</ul>
+</div>
+
+
+<script >
+    let element1=document.getElementById('div-id');
+  
+
+    let element2=document.getElementById('divdd');
+    let element=document.querySelector("li");
+  
+   
+    let counter = 0;
+    let input = document.querySelector("input");
+    setInterval(() => {
+        //input.setAttribute("value","counter");
+    
+        input.style.marginLeft = `${counter}px`
+
+        console.log(input.getAttribute("value"));
+       // input.value = counter;
+        counter++;
+    },1000);
+    //alert(element);
+</script>
+</body>
+</html>

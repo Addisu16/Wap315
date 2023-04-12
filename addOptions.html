@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <select id="selecta">
+        <option>
+            One
+        </option>
+        <option>
+            Three
+        </option>
+        <option>
+            Three
+        </option>
+        <option>
+            Four
+        </option>
+        <table id="myTable">
+            <tr>
+                <td>value1</td>
+                <td>value2</td>
+                <td>value3</td>
+                <td>value4</td>
+
+
+            </tr>
+           
+
+        </table>
+
+       
+    </select>
+
+
+    <script>
+
+
+        window.onload = function () {
+
+            let selecta = document.getElementById("selecta");
+             let optionss=document.querySelectorAll("option");
+             optionss[2].innerHTML="new value";
+            let selector3 = document.createElement("option");
+            selector3.innerHTML = "Five";
+            selecta.appendChild(selector3);
+            //let select2=document.getElementById("option");
+            //select2[1].after(selector3);
+            let selectorX = document.querySelector('#selecta');
+            let options = selectorX.querySelectorAll('option');
+            for (let i = 0; i < options.length; i++) {
+                const option = options[i];
+                if (option.innerHTML.trim() === "One") {
+                    //let temp=options[i].innerHTML;
+                    console.log("hello")
+                    let x = document.createElement("option");
+                    x.innerHTML = "Two";
+                    options[i].after(x);
+                }
+
+            }
+
+            //1.add row 
+            const table=document.querySelector("#myTable");
+
+            const newRow=document.createElement('tr');
+            const newRow1=document.createElement('td');
+            const newRow2=document.createElement('td');
+            const newRow3=document.createElement('td');
+            newRow1.innerHTML="Wengel";
+            newRow2.innerHTML="Addis";
+            newRow3.innerHTML="Wengel2";
+            newRow.appendChild(newRow1);
+            newRow.appendChild(newRow2);
+            newRow.appendChild(newRow3);
+            table.append(newRow);
+
+        }
+    </script>
+</body>
+
+</html>

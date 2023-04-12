@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="my-page">Hello guys</p>
+    <ul id="my-ul">
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+        <li>list4</li>
+    </ul>
+
+
+    <script>
+        //cange the text inside the page by inner HTML
+        let element=document.getElementById('my-page').innerHTM="Hello Addis";
+        console.log(element);
+
+        let apple=document.querySelectorAll('#my-ul~li');
+        let rev=[];
+        for(let i=apple.length-1;i>=0;i--){
+            rev.push(apple[i]);
+        
+        }
+        console.log(rev);
+        
+    </script>
+</body>
+</html>

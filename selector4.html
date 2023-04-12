@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<p>change my mood</p>
+<div>
+    <p class="mypage">This is page</p>
+</div>
+<p>let's have page</p>
+    <div id="myid">This is div1
+        <div>This is the second dev next to dev 1</div>
+        <p>This the page next to dev second which is inside dev 1</p>
+    </div>
+    <div>
+    <p>This is another page 1 outside dev</p>
+</div>
+    <p>This is another page 2 outside dev</p>
+    <p>This is another page 3 outside dev</p>
+    <p>This is another page 4 outside dev</p>
+    <div>This is another dev too</div>
+    <p>This is another page too 2</p>
+    <div>ENOUGH OF DEV</div>
+    <P>ENOUGH OF PAGE</P>
+</body>
+</html>
+
+<style>
+
+    *{/*This is universal selector*/
+        background-color:white;
+    }
+    div{/*This is type selector*/
+        color:red;
+    }
+    .mypage{/*This is my page selector*/
+        color:blue;
+    }
+    #myid{/*this is id selector*/
+        color:green;
+        text-decoration: underline;
+
+    }
+
+    div p{/*this is descendant*/
+        color:brown;
+    }
+    div~p{/*this is general siblings*/
+        color:rgb(255, 0, 204);
+    }
+div+p{/*the first element next to dev closing/Adjacent sibling*/
+    color:yellow;
+    text-decoration:underline;
+}
+div>p{
+    color:red;
+    border: 4px solid green;
+}
+</style>

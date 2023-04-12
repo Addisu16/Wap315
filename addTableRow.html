@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <table border="1px" class="thisRow" id="myid">
+        <tr id="myid" class="myclass">
+            <td>value1</td>
+            <td>value2</td>
+            <td>value3</td>
+        </tr >
+        <tr>
+            <td>value4</td>
+            <td>value5</td>
+            <td id="value1">value6</td>
+        </tr>
+      
+       
+    </table>
+
+
+    <script>
+
+        window.onload=function(){
+
+            //getting the table row array
+            let tableRow=document.querySelector('#myid');
+            let table=tableRow.querySelectorAll('tr');
+            
+            for(let i=0;i<table.length;i++){
+                if(table[i].innerHTML.trim()==='Value3'){
+                    let newRowData=document.createElement('td');
+                    newRowData.innerHTML="Value7";
+                    table[i].after(newRowData);
+                  
+                }
+            }
+            
+            
+            
+            
+
+
+
+
+
+
+        //     console.log(tableRow);
+        //     //creating newRow
+        //     //let newRow=document.createElement('tr');
+        //    //creating newRow data
+        //    let newRowData1=document.createElement('td')
+        //    let newRowData2=document.createElement('td')
+        //    let newRowData3=document.createElement('td')
+        //     //setting new value
+        //     newRowData1.innerHTML="new1";
+        //     newRowData2.innerHTML="new2";
+        //     newRowData3.innerHTML="new3"
+        //     //append the new value to the table
+        //     newRow.appendChild(newRowData1);
+        //     newRow.appendChild(newRowData2);
+            
+        //     newRow.appendChild(newRowData3);
+        //     console.log(newRow);
+        //     tableRow.append(newRow);
+            
+           
+            
+        //     //searching elements by id
+        //     let rowId=document.getElementById('myid');
+        //     //read the value of the content
+        //     let readId=rowId.getAttribute("class");
+        //     console.log(readId);
+
+        //     //Add value
+        //     let rowId2=document.getElementsByTagName('td')[4];
+        //     let addValue=rowId2.setAttribute("class","newClass");
+        //     console.log(addValue);
+        //     //remove attribute of the class
+        //     let removeClass=rowId.removeAttribute('class');
+        //     console.log(removeClass);
+       
+            
+
+           
+        //     console.log(newRow);
+        //     let lastValue=document.getElementById("#value1");
+        //     newRow.append(lastValue);
+        //    document.body.append(newRow);
+        }
+    </script>
+    
+</body>
+</html>

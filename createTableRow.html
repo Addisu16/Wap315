@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1px" id="myTable">
+        <tr>
+            <td>table1</td>
+            <td>table 2</td>
+        </tr>
+        
+
+
+<script>
+window.onload=function(){
+
+let myTable=document.querySelector('#myTable');
+let newRow=document.createElement('tr');
+let row1=document.createElement('td');
+let row2=document.createElement('td');
+row1.innerHTML="Wein";
+row2.innerHTML="Addis";
+newRow.appendChild(row1);
+newRow.appendChild(row2);
+myTable.append(newRow);
+
+
+
+
+}
+</script>
+        
+</body>
+
+</html>

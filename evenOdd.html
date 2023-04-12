@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="mytable">
+        <tr>
+        <td>First Row Col 1</td>
+        <td>First Row Col 2</td>
+        </tr>
+        <tr>
+        <td>Second Row Col 1</td>
+        <td>Second Row Col 2</td>
+        </tr>
+        </table>
+<script>
+    window.onload=function(){
+        let ul=document.createElement('ul');
+        let tableRow=document.querySelectorAll('td');
+        const div=document.createElement('div');
+        console.log(tableRow);
+        for(let i=0;i<tableRow.length;i++){
+            if(i%2===0){
+                let li=document.createElement('li');
+                //div.innerHTML=tableRow[i].innerHTML;
+                li.innerHTML=tableRow[i].innerHTML;
+                ul.append(li);
+                div.append(ul);
+                console.log(div);
+                console.log(ul);
+                console.log(i);
+            }
+
+        }
+        document.body.append(div);
+        document.body.append(ul);
+    }
+</script>
+
+
+</body>
+</html>

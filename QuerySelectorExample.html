@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Doc</title>
+</head>
+<body>
+    <ul><li>
+        first item
+    </li>
+    <li>Second  Item</li>
+    <li>Third Item</li>
+    <input id="myId" type="text" value=""/>
+<script>
+    let elements=document.querySelectorAll("ul>li");
+    for(let elem of elements){
+        alert(elem.innerHTML);
+
+    }
+let inputText=document.getElementById("myId");
+alert(inputText.value,inputText.type);
+//create div element
+ let div=document.createElement('div');
+ //set it's class name my-div
+body.append(div);
+div.className="my-div";
+//fill it with content
+
+div.innerHTML="Hi,my name is Addis";
+
+</script>
+
+</ul>
+</body>
+</html>
