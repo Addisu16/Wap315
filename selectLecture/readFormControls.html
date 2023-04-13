@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        select{
+            display:block;
+            margin-bottom:10px;
+        }
+
+    </style>
+    <script>
+        function readValues() {
+            var e = document.querySelector("select[name='country'] option:checked");
+            console.log(e)
+
+            var prefOptions = document.querySelectorAll("select[name='preference'] option:checked");
+            let preferences =''
+            for(let pref of prefOptions){
+                preferences+=' '+pref.innerHTML;
+            }
+
+            var gender = document.querySelector("input[name='gender']:checked");
+            console.log(gender);
+            let genderValue = gender?gender.value:'';
+
+            
+
+            var checkedDiet = document.querySelectorAll("input[name='diet']:checked");
+            console.log(checkedDiet);
+            let values =''
+            for(let myDiet of checkedDiet){
+                values+=' '+myDiet.value;
+            }
+            // var text = e.options[e.selectedIndex].innerHTML;
+            // console.log(e.options[e.selectedIndex])
+            alert(`Country: ${e.innerHTML} Preferences:: ${preferences} Gender:: ${genderValue} Diet:: ${values}`);
+           //alert(`Gender:: ${genderValue} Diet:: ${values} `)
+        }
+
+    </script>
+</head>
+
+<body>
+    <form action="/fix.html">
+    Country
+    
+    <select name="country" >
+        <option value="USA">United States of America</option>
+        <option value="IN">Other</option>
+    </select>
+
+    Room Preferences
+    <select name="preference" multiple >
+        <option value="USA">Single</option>
+        <option value="IN">Shared</option>
+    </select>
+    <br/>
+
+    <div>
+        <label>Gender</label>
+        <input type="radio" value="male" name='gender'/>
+        <label>Male</label>
+        <input type="radio" value="male" name='gender'/>
+        <label>Female</label>
+    </div>
+<!--
+let diet=document.querySelectorAll([name='diet' checkbox:checked]');
+let restriction=diet?diet.value:"";
+-->
+
+
+    <div id="myDiv">
+        <label>Diet Restriction</label>
+        <input type="checkbox" value="vegan" name='diet' />
+        <label>Vegan</label>
+        <input type="checkbox" value="nut" name='diet'/>
+        <label>Nut Allergy</label>
+    </div>
+    <button onclick="readValues()">My Button</button>
+    
+
+</form>
+</body>
+
+</html>

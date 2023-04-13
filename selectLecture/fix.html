@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            console.log(location.search);
+            const urlParams = new URLSearchParams(location.search);
+            // console.log(urlParams)
+            
+            for (const [key, value] of urlParams) {
+                console.log(`${key}:${value}`);
+                if(key=='preferences'){
+                    document.getElementById('myInput').innerHTML = value;
+                 } else if(key=='genderValue'){
+                document.getElementById('myInput1').innerHTML = value;
+            }else if(key=='values'){
+                document.getElementById('myInput2').innerHTML = value;
+            }
+        }
+    }
+    function myclick(){
+            let select=document.querySelectorAll("[name='mySelect']")[0];
+            console.log(select.value);
+            let value=select.value;
+            let text=select.options[select.selectedIndex].text;
+            console.log(text);
+        }
+    </script>
+</head>
+
+<body>
+<label id="myInput"></label>
+<label id="myInput1"></label>
+<label id="myInput2"></label>
+
+
+</body>
+
+</html>

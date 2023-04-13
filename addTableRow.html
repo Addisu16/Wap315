@@ -29,20 +29,59 @@
 
         window.onload=function(){
 
-            //getting the table row array
-            let tableRow=document.querySelector('#myid');
-            let table=tableRow.querySelectorAll('tr');
-            
+            //adding column  at the last
+            let table=document.querySelectorAll('table tr td');
+            console.log(table);
             for(let i=0;i<table.length;i++){
-                if(table[i].innerHTML.trim()==='Value3'){
-                    let newRowData=document.createElement('td');
-                    newRowData.innerHTML="Value7";
-                    table[i].after(newRowData);
+                if(table[i].innerHTML.trim()==='value3'){
+                 
+                    let newColumnData=document.createElement('td');
+                    newColumnData.innerHTML="value7";
+                    table[i].after(newColumnData);
                   
                 }
             }
-            
-            
+            //adding row after value 6
+            let tableRow=document.querySelectorAll('table tr td');
+            console.log(tableRow);
+            for(let i=0;i<tableRow.length;i++){
+                if(tableRow[i].innerHTML.trim()==='value6'){
+                    console.log(tableRow[i]);
+                    let newRowData=document.createElement('td');
+                    newRowData.innerHTML="value8";
+                    tableRow[i].after(newRowData);
+                  
+                }
+            }
+            ////adding table on second row 2 
+        
+
+            let table1=document.querySelectorAll('table tr:nth-child(2) td:nth-child(2)')[0];
+            console.log(table1);
+             let newVal=document.createElement('td');
+             newVal.innerHTML="valuex";
+             table1.after(newVal)   
+             //adding table on first row 4thcolumn
+             let table2=document.querySelectorAll('table tr:nth-child(1) td:nth-child(4)');
+             let newValue=document.createElement('td');
+             newValue.innerHTML="my new"
+             newValue.setAttribute("class","myclass");
+             //remove method works like this
+             newValue.remove();
+             console.log(newValue);
+             newValue.getAttribute("class");
+             console.log(newValue);
+             console.log(newValue);
+             table2[0].after(newValue)
+
+             let container=document.createElement("div");
+             console.log(container);
+             let p=document.createElement('p');
+             container.append(p);
+             
+             let span=document.createElement('span');
+             p.before(span,"text");
+             document.body.append(container);
             
             
 

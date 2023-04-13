@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+    <script>
+        function myclick(){
+            let select=document.querySelectorAll("[name='mySelect']")[0];
+            console.log(select.value);
+            let value=select.value;
+            let text=select.options[select.selectedIndex].text;
+            console.log(text);
+        }
+    </script>
+</head>
+<body>
+    <form action="/formSubmission2.html">
+
+        Email:<input type="text"name="email"/>
+        password:<input type="text"name="password"/>
+        <input type="submit"value="Button">
+    <select name="country" id="phonecode">
+    <option value="USA"> UnitedStatesofAmerica</option>
+    <option value="Ethiopia">Ethiopia</option>
+    <option value="Eritheria">Eritheria</option>
+</select>
+<input type="submit"value="submit">
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Select</title>
+</head>
+
+
+
+
+<script>
+
+    function moveRight(){
+        let leftList=document.getElementById('colors1');
+        console.log(leftList);
+        let selectedItem=leftList.selectedIndex;
+        if(selectedItem==-1){
+            alert('you must select a list from leftList');
+        }else{
+            let rightList=document.getElementById('rightList');
+            let 
+        }
+    }
+</script>
+<body>
+    
+
+<div class="div-one" style="display:flex;padding:20px;gap:40px;margin:20px;">
+    <div class="div-two" >
+        <form action="">
+            <label for="Colors">Choose color</label>
+        <select  name="Colors" id="colors1" multiple style="list-style-type: none;text-align:left;border:2px solid red;box-sizing: content-box;">
+            <option>Red</option>
+            <option>Yellow</option>
+            <option value="">Rose</option>
+            <option value="">Black</option>
+            <option value="">Green</option>
+    </select>
+
+    </form>
+    </div>
+<div>
+    <input type="Button" value="Move">
+</div>
+    <div class="div-three">
+         <select name="rightList" id="rightList" multiple style="list-style-type: none;text-align:left;border:2px solid red;box-sizing: content-box;">
+          <option value=""></option>
+          <option value=""></option>
+          <option value="
+          "></option>
+
+
+
+         </select>
+    </div>
+</div>
+
+</body>
+</html>
