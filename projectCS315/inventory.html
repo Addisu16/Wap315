@@ -2,7 +2,9 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="../styles/myStyle.css">
+ <!--
+ <link rel="stylesheet" href="../styles/myStyle.css">
+ -->
 </head>
 
 <body>
@@ -20,6 +22,156 @@
       Quantity: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
       <input type="text" value="" id="quantity" />
     </p>
+    <p>
+     Price: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+      <input type="text" value="" id="price" />
+    </p>
+    <p>
+      Brand: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+      <input type="text" value="" id="brand" />
+    </p>
+    <p>
+      Item Description: &nbsp; &nbsp;
+     <textarea name="" id="itemDescription" cols="" rows=""></textarea>
+    </p>
+    <p>
+      Product ID: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+      <input type="text" value="" id="productID" />
+    </p>
+    <p>
+      Image Links: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+      <input type="link" value="" id="imageLinks" />
+    </p>
+      <div>
+      
+        <style>
+          .rating {
+            display: inline-block;
+            position: relative;
+            height: 20px;
+            
+            font-size: 20px;
+          }
+          
+          .rating label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            cursor: pointer;
+          }
+          
+          .rating label:last-child {
+            position: static;
+          }
+          
+          .rating label:nth-child(1) {
+            z-index: 5;
+          }
+          
+          .rating label:nth-child(2) {
+            z-index: 4;
+          }
+          
+          .rating label:nth-child(3) {
+            z-index: 3;
+          }
+          
+          .rating label:nth-child(4) {
+            z-index: 2;
+          }
+          
+          .rating label:nth-child(5) {
+            z-index: 1;
+          }
+          
+          .rating label input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+          }
+          
+          .rating label .icon {
+            float: left;
+            color: transparent;
+          }
+          
+          .rating label:last-child .icon {
+            color: #000;
+          }
+          
+          .rating:not(:hover) label input:checked ~ .icon,
+          .rating:hover label:hover input ~ .icon {
+            color: #09f;
+          }
+          
+          .rating label input:focus:not(:checked) ~ .icon:last-child {
+            color: #000;
+            text-shadow: 0 0 5px #09f;
+          }
+              </style>
+              Ratings
+              <form class="rating" id="ratings">
+                
+                  <label>
+                    <input type="radio" name="stars" value="1" />
+                    <span class="icon">★</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="stars" value="2" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="stars" value="3" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>   
+                  </label>
+                  <label>
+                    <input type="radio" name="stars" value="4" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="stars" value="5" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                  </label>
+                </form>
+              <script>
+               
+       $(':radio').on('change', function() {
+    // Get the value of the selected radio button
+    var rating = $('input[name="stars"]:checked').val();
+
+    // Log the rating value to the console
+    console.log("Rating: " + rating);
+  });
+
+
+              </script>
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+   
     <label id="mode" hidden></label>
     <p>
       <input type="submit" value="Add" class="addButton" onclick="add()" />
@@ -27,18 +179,25 @@
     <input type="submit" value="filter" onclick="filter()" />
     <input type="submit" value="Clear Filter" onclick="clearFilter()" />
     <br />
+    <input type="file" value="">
   </div>
   <table id="items">
     <tr>
       <th>Product Name</th>
       <th>Category</th>
       <th>Quantity</th>
+      <th>Price</th>
+      <th>Brand</th>
+      <th>Item Description</th>
+      <th>Product ID</th>
+      <th>Image Links</th>
+      <th>Ratings</th>
       <th>Edit</th>
       <th>Delete</th>
     </tr>
-  </table>
+  </table> 
 
-  <div>
+   <div>
     <h4>Project Tasks</h4>
     <i> Inventory Page Assignment.</i>
      <ul>
@@ -58,7 +217,7 @@
   <script>
     var array = [];
     var index = 0;
-    var idsOfInputs = ["itemName", "category", "quantity"];
+    var idsOfInputs = ["itemName", "category", "quantity","price","brand","itemDescription","productID","imageLinks","ratings"];
 
     function createEditButton(){
       let editTd = document.createElement("td");
@@ -78,7 +237,14 @@
           if (item.id == myId) {
             item.name = document.getElementById("itemName").value;
             item.category = document.getElementById("category").value;
-            item.quantity = document.getElementById("category").value;
+            item.quantity = document.getElementById("quantity").value;
+            item.price = document.getElementById("price").value;
+            item.brand=document.getElementById("brand").value;
+            item.itemdescription=document.getElementById("itemDescription").value;
+            item.productID=document.getElementById("productID").value;
+            item.imageLinks=document.getElementById("imageLinks").value;
+            item.ratings=document.getElementById("ratings").value;
+            
           }
         })
 
@@ -112,12 +278,22 @@
           editTr[i].innerHTML = document.getElementById(idsOfInputs[i]).value;
         }
       } else {
+        
         index++;
         var item = {
           id: index, name: document.getElementById("itemName").value,
           category: document.getElementById("category").value,
-          quantity: document.getElementById("quantity").value
+          quantity: document.getElementById("quantity").value,
+          price:document.getElementById("price").value,
+          brand:document.getElementById("brand").value,
+          itemdescription:document.getElementById("itemDescription").value,
+          productID:document.getElementById("productID").value,
+          imageLinks:document.getElementById("imageLinks").value,
+          ratings:document.getElementById("ratings").value,
+          
+        
         };
+        console.log(item.ratings);
         array.push(item);
         let tr = document.createElement("tr");
         for (let eachInput of idsOfInputs) {
