@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+</head>
+
+
+
+
+<body>
+
+
+
+
+
+    <script>
+
+        let flowers = [{ id: 1, name: "rose" }, { id: 2, name: "orchid" }, { id: 3, name: "iris" }];
+
+        let outer = document.createElement('div');
+
+        outer.setAttribute('style', 'display:grid;gap:10px;grid-template-columns: 1fr 1fr 1fr');
+
+
+
+
+        let div = document.createElement("div");
+
+        div.innerHTML = '';
+
+        let select = document.createElement("select");
+
+        select.setAttribute("multiple", true);
+
+
+
+
+        for (let obj of flowers) {
+
+            let option = document.createElement('option');
+
+            option.innerHTML = obj.id+"-"+obj.name;
+
+            select.append(option);
+
+            div.append(select);
+
+            outer.append(div);
+
+
+
+
+        }
+
+
+
+
+        document.body.append(outer);
+
+        let innerdiv = document.createElement('div');
+
+        innerdiv.innerHTML = '';
+
+
+
+
+
+
+        innerdiv.innerHTML += '<button onclick="remove()">>></button>' + '<br>' +
+
+            '<button onclick="move()"><<</button >' + '<br>' + '<button onclick="addone()">></button >' + '<br>' + '<button onclick="moveone()"><</button >';
+
+        outer.append(innerdiv);
+
+
+
+
+
+        let thirddiv = document.createElement('div');
+
+        let selectsec = document.createElement("select");
+
+        selectsec.setAttribute("multiple", true);
+
+        thirddiv.append(selectsec);
+
+        outer.append(thirddiv);
+
+
+
+
+
+function remove() {
+ //let selectedOptions = select.selectedOptions
+ //let selected = document.querySelectorAll('option');
+
+//console.log(selected)
+let selectedOptions = document.querySelectorAll('select option:checked');
+for (let i = 0; i < selectedOptions.length; i++) {
+let option = selectedOptions[i];
+option.remove();
+
+}
+}
+let div1=document.createElement('div');
+let button=document.createElement('button');
+button.innerHTML='Remove';
+button.onclick=remove;
+div1.append(button);
+document.body.append(div1);
+
+
+        function move() {
+
+            let selectedOptions = document.querySelectorAll('select option');
+
+            for (let i = 0; i < selectedOptions.length; i++) {
+
+                let option = selectedOptions[i];
+
+                //selectsec.remove(option);
+
+                select.append(option);
+
+            }
+
+
+
+
+ }
+
+ function moveone() {
+
+ let selectedOptions = document.querySelectorAll(' select option:checked');
+
+
+
+
+            //for (let i = 0; i < selectedOptions.length; i++) {
+
+            for (let opt of selectedOptions) {
+
+                // let option = opt.innerHTML;
+
+                //console.log(option);
+
+ //selectsec.remove(opt);
+
+ select.append(opt);
+
+ }
+
+
+
+
+}
+
+</script>
+
+
+
+
+</body>
+
+
+
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<script>
+    function change(){
+
+        let header=document.querySelector('head');
+        if(header.style.color!=""){
+
+        }
+        header.setAttribute('style','color=red;align-items=center')
+        let colors=document.querySelectorAll("select[name='selected'] option:checked");
+        console.log(colors);
+        let colorValues="";
+        let newDiv=document.createElement('div');
+        let newLabel="";
+        for(const color of colors){
+           newLabel=document.createElement('label');
+            newLabel.innerHTML=`Selected Color:${color.value}`;
+            if(color.style.visiblity==='hidden'){
+                color.style.visiblity='visible';
+            }else{
+                color.style.visiblity='hidden';
+            }
+            
+        }
+        newDiv.appendChild(newLabel);
+
+        document.body.append(newDiv);
+        
+
+    }
+
+
+
+
+
+//     function read() {
+
+
+
+
+// let vedas = document.getElementById("scripture");
+
+// let selectedOption = vedas.options[vedas.selectedIndex];
+
+// let selectedText = selectedOption.innerHTML;
+// if(selectedText==='none'){
+// selectedText.style.visiblity="hidden";
+// }else{
+//     selectedText.style.visiblity="visible";
+// }
+// let selectedLabel = document.getElementById("selected");
+
+// selectedLabel.innerHTML = selectedText;
+
+
+//     }
+// </script>
+<body>
+    
+
+<header id="head" style="background-color:green;text-align:center;font-weight:25px;font-size:20px;">Heading</header><br>
+
+<label for="">Scriptures</label>
+    <select name="selected" id="selectId" >
+        <option value="red">red</option>
+        <option value="black">black</option>
+       </select>
+       <label for="" id="selectText">Selected-Text:</label>
+       <button type="change" onclick="change()">Change</button><br>
+       
+    <footer style="background-color: brown;text-align:center;font-weight:25px;font-size:20px;">TheEnd
+    
+    </footer>
+</body>
+</html>

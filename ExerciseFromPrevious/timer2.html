@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let selectedState;
+        function getValue(){
+        let states = document.getElementById("states");
+        
+            for (let each of states) {
+                if(each.selected){
+                    selectedState=each.value;
+                    break;
+                }
+            }
+        
+console.log(selectedState);
+        if(selectedState=="Minnesota"){
+            document.getElementById("cold").style.display="block";
+        }
+        else{
+            document.getElementById("hot").style.display="none";
+            document.getElementById("averag").style.display="none";
+        }
+    }
+    </script>
+</head>
+<body>
+    <input type="button" onclick="getValue()" value="get Value">
+    <label>State:</label>
+    <select id="states">
+        <option>Select...</option>
+        <option value="minnesota">Minnesota</option>
+        <option value="verginia">Verginia</option>
+        <option value="atlanta">Atlanta</option>
+        <option value="texas">Texas</option>
+        <option value="iowa">Iowa</option>
+   </select>
+   <br><br>
+   <div>
+        <label id="cold">
+        <label id="cold">Coldest</label>
+        <input type="radio" value="coldest" id="cold"> &ensp;
+    </label>
+        <label id="hot">
+        <label id="hot">Hotest</label>
+        <input type="radio" value="hotest" id="hot">&ensp;
+    </label>
+        <label id="averag">
+        <label id="averag">Average</label>
+        <input type="radio" value="average" id="averag">&ensp;
+    </label>
+   </div>
+    
+</body>
+</html>

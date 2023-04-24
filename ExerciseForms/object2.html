@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        
+    // let div=document.createElement('div');
+    // for (const key in form) {
+    //     if(form.hasOwnProperty(key)){
+    //     let label=document.createElement('label');
+    //     label.innerHTML=key;
+    //     let input=document.createElement('input');
+    //     input.value=form[key];
+    //     input.setAttribute("name",key);
+    //    div.append(label);
+    //    div.append(input)
+    // }
+    //    document.body.append(div)
+    // }
+   
+            let form={
+                        name:'Rammm',
+                        Age:30,
+                        profession:['Developer','java'],
+                        skills:['swimming','playing','dancing']
+                    };
+           
+window.onload=function(){
+
+    let dv= document.createElement('div');
+    for(const key in form){
+        let select=document.createElement('select');
+        let label=document.createElement('label');
+        if(Array.isArray(form[key])){
+         for(let i=0;i<form[key].length;i++){
+            label.innerHTML=key;
+            let option=document.createElement('option');
+            option.innerHTML=form[key][i];
+            select.append(option);
+            dv.append(label);
+         }
+         
+         dv.append(select);
+         }else{
+        //let label=document.createElement('label');
+        label.innerHTML=key;
+        console.log(label.innerHTML);
+        let input=document.createElement('input');
+        input.value=form[key];
+        console.log(input.value);
+        dv.append(label);
+        dv.append(input);
+        }
+    }
+        document.body.append(dv);
+    }
+        
+    
+
+        
+        
+
+
+    
+
+
+          
+
+ //    if(typeof form[key]==='objects'){
+    //     console.log(typeof form[value]);
+    //     let options=document.createElement('option');
+    //     console.log(object);
+    //     option.innerHTML=value;
+    //     select.append(options);
+        
+    //     // options.outerHTML=""
+    //   
+    </script>
+</head>
+<body>
+
+</body>
+</html>

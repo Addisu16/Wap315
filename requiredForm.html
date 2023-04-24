@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+<input type="text" value="" id="This-text">
+<input type="submit" value="">
+</form>
+<button "myClick()">Submit</button>
+
+
+
+<script>
+    function myClick(){
+        console.log("myClick");
+        let inputText=document.querySelector('#This-text');
+        
+        if(inputText===""){
+            inputText.style.border='Red';
+            console.log('The input data sould not be empty');  
+        }else{
+            document.querySelector('label').innerHTML=document.querySelector('label')+=value ;  
+        }
+    }
+</script>
+<label for="">inputText:</label>
+</body>
+</html>

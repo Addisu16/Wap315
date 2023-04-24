@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        window.onload = function () {
+            let myDiv = document.createElement('div');
+            myDiv.innerHTML = "<label>States</label>" +
+                '<select>' +
+                '<option value="select">select</option> ' +
+                '<option value="Iowa">Iowa</option> ' +
+                '<option value="Virginia">Virginia</option> ' +
+                '</select>' +
+                '<button onclick="show()">Show</button>' +
+                '<div id="checkBoxDIV"></div>' + "</hr/>" +
+                
+                '<button onclick="getCheckBoxValue()">Submit</button>';
+            document.body.append(myDiv);
+        }
+
+        function show() {
+            let selection = document.querySelector('select option:checked').value;
+            let checkBoxDiv = document.getElementById('checkBoxDIV');
+            console.log(checkBoxDiv);
+            checkBoxDiv.innerHTML = '';
+            let html;
+            if (selection ==='Virginia') {
+                html = '<input type="checkBox" name="virginia" value="woodbridge">woodbridge' +
+                    '<input type="checkBox" name="virginia" value="Alexanderia">Alexanderia' +
+                    '<input type="checkBox" name="virginia" value="Arlington">Arlington' +
+                    '<input type="checkBox" name="virginia" value="FairFax">FairFax';
+            } else if (selection ==="Iowa") {
+                html = '<input type="checkBox" name="Iowa" value="cedar-Rapids">cedar Rapids' +
+                    '<input type="checkBox" name="Iowa" value="Burlington">Burlington' +
+                    '<input type="checkBox" name="Iowa" value="Madison">Madison' +
+                    '<input type="checkBox" name="Iowa" value="iowa-city">iowa-city';
+
+            } else {
+                html = '<label style="color:red;">*Select Valid Option</label>'
+            }
+            checkBoxDiv.innerHTML = html;
+        }
+        function getCheckBoxValue() {
+            let selection = document.querySelectorAll('input:checked');
+            let checkBoxDiv = document.getElementById('checkBoxDIV');
+            checkBoxDIV.innerHTML = '';
+            for (let sel of selection) {
+                checkBoxDIV.innerHTML += '' + "" +sel.value;
+            }
+
+        }
+    </script>
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+</body>
+
+</html>

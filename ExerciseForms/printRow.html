@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+        let fruits=['apple','pear','banana'];
+        let interval;
+        window.onload=function(){
+          let div=document.getElementById('myDIV');
+          let order='column';
+          let i=0;
+          interval=setInterval(function(){
+            if(i==fruits.length){
+                 if(order=='column')
+                    order='row'; 
+                 else
+                  order='column';
+                  i=0;
+                 }
+                 let elem=order='column'?document.createElement('div'):document.createElement('label');
+                elem.innerHTML=fruits[i++]+" ";
+                div.append(elem);
+            
+        
+          },1000)
+        }
+      
+        
+    
+          function stopPrint(){
+                clearInterval(interval);
+            
+          }
+          
+    
+    </script>
+</head>
+<body>
+    <h1>Heading</h1>
+
+    <div id="myDIV"> Printing....</div>
+    <div> <button id="myB" onclick='stopPrint()'>Stop</button></div>
+   
+   
+</body>
+</html>

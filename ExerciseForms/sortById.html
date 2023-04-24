@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+
+        <meta name='viewport' content='width=device-width, initial-scale=1'> 
+    <script>
+  let userList=[{ 
+
+id: 1, 
+
+fname: 'John', 
+
+lname: 'Doe', 
+
+img: './images/addisu.jpg' 
+
+}];
+
+window.onload = function() {
+  getUsers(userList);
+}
+let myDiv=document.getElementById('container');
+  myDiv.innerHTML='';
+    
+    function getUsers(userList){
+   
+    for (let i=0;i<userList.length;i++) {
+      console.log(userList.img)
+     const div = document.createElement('div');
+     div.innerHTML= `<img src="${userList[i].img}" alt="">
+    <p>"${userList[i].fname} ${userList[i].lname}"</p>
+    <button onclick="deleteUserById(id)">Delete</button>`;
+    console.log(userList[i]);
+    
+     
+    }
+    myDiv.after(div);
+   // document.body.append(myDiv);
+
+
+  }
+  function deleteUserById(id){
+    const user=userList.find(userList=>user.id===id)
+    user.remove();
+  }
+
+
+
+        
+    </script>
+    </head> 
+    
+    <body> 
+    
+            <div class="container" id='container'> 
+
+            </div> 
+            
+    
+    </body> 
+    
+    </html> 

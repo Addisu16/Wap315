@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let fruits = ['apple', 'pear', 'banana'];
+        //window.onload = function () {
+            let ul = document.createElement('ul');
+            let dv=document.createElement('div');
+            document.body.append(dv);
+            document.body.append(ul)
+            let myTime = Date.now();
+            //Solution 1 setTimeout
+            // for (let i = 1; i <= fruits.length; i++) {
+            //     let index = i*1000;
+            //     setTimeout(function () {
+            //         let li = document.createElement('li');
+            //         li.innerHTML = fruits[i-1];
+            //         ul.append(li);
+            //     },index );
+            // }
+            
+            //Solution 2 setInterval
+            let i =0;
+            let interval='';
+            interval = setInterval(function () {
+                console.log(" HERE ", i);
+                if (i == fruits.length){
+                    //clearInterval(interval);
+                }else {
+                    let li = document.createElement('li');
+                    let label=document.createElement('label');
+                    label.innerHTML=fruits[i++];
+                    li.innerHTML = fruits[i++];
+                    ul.append(li)
+                    dv.append(label);
+                }
+            }, 1000)
+        
+
+function stop(){
+        clearTimeout(interval);
+}
+
+let button=document.createElement('button');
+button.innerHTML='stop'
+button.onclick=stop;
+dv.append(button);
+        
+        
+    
+
+    </script>
+</head>
+
+<body>
+    <h1>Heading</h1>
+    <p id="myP"> Some Paragraph</p>
+</body>
+
+</html>

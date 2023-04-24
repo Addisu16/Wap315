@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+</head>
+
+<body>
+
+
+
+    <script>
+        window.onload = function () {
+
+            //   console.log(document.querySelector('p').classList);
+
+            //   document.querySelector('p').classList.remove('myclass1');
+            //   document.querySelector('p').setAttribute('style','color:black =;border=2px solid green;')
+            // document.querySelector('#myRadio').setAttribute('style','color:green =;border=4px solid green;')
+        }
+    </script>
+
+
+    <!-- <p class="myclass myclass1">Mypara</p> -->
+    <input type="text" id="input">
+    <!-- <input type="radio" value="a" name='color' class="myClass"/> -->
+    <input type="radio" id="red-radio" name="name" onchange="toggle('red')">red</input>
+    <!-- <input type="radio" value="a" name='color' class="myClass"/> -->
+    <input type="radio" id="green-radio" name="name" onchange="toggle('green')">green</input>
+
+
+
+
+
+
+    <input type="text" id="input-text">
+    <input type="submit" name="myButton" id="submit-button" onclick="visiblity()">
+
+
+
+    <input type="text" id="input-text1">
+    <input type="submit" name="myColor" id="submit" onclick="setColor()">
+
+    <script>
+        <!--Dark or black when we are select the toogle-->
+        //Practice at home
+
+
+        // function setColor(){
+        //     let user=document.getElementById('myClass').value;
+        //     user.setAttribute('style',color:)
+
+        function visiblity() {
+
+            if (document.getElementById('input-text').style.visibility == 'visible') {
+                document.getElementById('input-text').style.visibility = 'hidden';
+            } else {
+
+                document.getElementById('input-text').style.visibility = 'visible';
+            }
+        }
+
+
+
+        function toggle(color) {
+            document.getElementById("input").style.borderColor = color;
+        }
+
+
+
+        function setColor() {
+            var inputText1 = document.getElementById("input-text1");
+            var backgroundColor = inputText1.style.backgroundColor;
+            if (backgroundColor !== '') {
+                inputText1.style.backgroundColor = 'textValue';
+                console.log(inputText1.style.backgroundColor);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

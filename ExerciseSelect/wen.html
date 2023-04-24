@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        window.onload=function(){
+
+            console.log(location.search);
+            let url1=new URLSearchParams(location.search);
+            for(const [key,value] of url1){
+                if(key==='email'){
+                    document.querySelector('#label1').innerHTML=document.querySelector('#label1').innerHTML+value;
+                }
+                else if(key==='password'){
+                    document.querySelector('#label2').innerHTML=document.querySelector('#label2').innerHTML+value;
+                }
+               else if(key==='multiple'){
+                    document.querySelector('#label3').innerHTML=document.querySelector('#label3').innerHTML+=value +" ";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <label for="" id="label1">Email:</label><br>
+    <label for="" id="label2">password:</label><br>
+    <label for="" id="label3">Selection:</label>
+</body>
+</html>

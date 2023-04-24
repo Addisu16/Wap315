@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let myObj = {
+            name: 'Ram',
+            age: 30,
+            skills: ['java', 'javascript']
+        };
+
+        window.onload = function () {
+            let div = document.createElement('div');
+            for (const key in myObj) {
+                let select = document.createElement('select');
+                let label = document.createElement('label');
+                if (Array.isArray(myObj[key])) {
+                    for (let i = 0; i < myObj[key].length; i++) {
+                        label.innerHTML = key;
+                        let option = document.createElement('option');
+                        option.innerHTML = myObj[key][i];
+                        select.append(option);
+                        div.append(label);
+                    }
+                } else {
+                    let label = document.createElement('label');
+                    label.innerHTML = key;
+                    let input = document.createElement('input');
+                    input.setAttribute('id', 'name')
+                    input.value = myObj[key];
+                    div.append(label);
+                    div.append(input);
+                }
+            }
+
+            let button = document.createElement('button');
+            button.innerHTML = 'Submit'
+            button.onclick = submitt;
+            div.append(button);
+            document.body.append(div);
+
+            
+            function submitt() {
+
+                let input = document.querySelector('input');
+                //let key = input.getAttribute('id');
+
+                //let div2 = document.createElement('div');
+                for (const key in myObj) {
+                    if (input.value !== myObj[key]) {
+                        let label = document.createElement('label');
+                        label.innerHTML = key;
+                        let input = document.createElement('input');
+                        // input.setAttribute('id', key)
+                        input.value = myObj[key];
+                        div.append(label);
+                        div.append(input);
+
+                    } else {
+                        for (let i = 0; i < myObj[key].length; i++) {
+                            let select = document.createElement('select');
+                            let label = document.createElement('label');
+                            label.innerHTML = key;
+                            let option = document.createElement('option');
+                            option.innerHTML = myObj[key][i];
+                            select.append(option);
+                            div.append(label);
+                            input.value = myObj[key];
+                        }
+                    }
+                }
+                document.body.append(div);
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

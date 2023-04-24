@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload = function () {
+            let myDiv = document.createElement('div');
+            myDiv.innerHTML = `<label for="" id="Site1">Sites
+    <input type="text" name="name" placeholder="Enter site name" required >
+    <input type="text" name="name" placeholder="Enter Address" required>
+    <input type="text" name="name" placeholder="Enter keywords" required>
+    
+    
+            document.body.append(myDiv);
+        }
+        function requiredFields() {
+
+            let siteData = document.querySelectorAll("input");
+            let innerDiv = document.getElementById('div-inner');
+            siteData.innerHTML = '';
+            for (const site of siteData) {
+
+                if (site.value === "Table") {
+                    let table = document.createElement('table');
+                    table.innerHTML = site.value;
+                    innerDiv = table.innerHTML;
+                    <div id="div-inner"></div>
+    <label>AddTo</label>
+    <input type="checkbox" Value="Table">Table</label>
+    <input type="checkbox" value="List">list</label>
+    
+
+    <input type="Button" onclick="requiredFields()" name="button" value="Add">
+</label><br>`;
+                } else if (site.value === "List") {
+                    let ull = document.createElement('ul');
+                    let list = document.createElement('list');
+                    list.innerHTML = site.value;
+                    ul.appendChild(list);
+                    innerDiv.append(ul);
+                } else {
+                    innerDiv = '<label style="border:2px solid red;">*please Enter all the required Fields</label>';
+                }
+            }
+
+            document.body.appendChild(div1);
+
+
+        }
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+
+
+
+    <!-- <input type="checkBox" value="AddTo"><label for="">Add To</label>
+<input type="checkBox" value="Table"><label for="">Table</label>
+<input type="checkBox" value="List"><label for="">List</label><br>
+List -->
+
+    <!-- <a href="addres.value"><br>
+    Google</a>
+    <li>Java</li>
+    <li>JavaScript</li>
+<a href="https://www.paypal.com">paypal</a>
+<li>account</li> -->
+
+
+
+    </form>
+</body>
+
+</html>

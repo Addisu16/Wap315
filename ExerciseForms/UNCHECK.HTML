@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+let flowers=[{
+    name:'rose',
+    color:pink},
+    {name:'rose',color:'red'},
+    {name:'lily',color:'white'}];
+window.onload=function(){
+        let div=document.createElement('div');
+        div.innerHTML=`<input type="checkbox" value="Hello"><label>Hello</label>
+    <input type="checkbox" value="hi"><label>Hey</label>
+    <input type="checkbox" value="hi"><label>Hellllo</label>
+    <input type="checkbox" class="myInput" value="myCheck"><label>you</label>
+    <button onclick="deleteMarked()">Delete</button>`;
+    document.body.append(div);
+}
+        function deleteMarked(){
+            let myElem=document.querySelectorAll('label');
+            let myElem2=document.querySelectorAll('input');
+            let i=0;
+            for(let elm of myElem2){
+                if(elm.checked){
+                    elm.remove();
+                    myElem[i].remove();
+                }
+                i++;
+                
+            }
+          
+        }
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, tr, td{
+            
+                border:solid brown 1px;
+                padding: 15px;
+            }
+        
+    </style>
+    
+</head>
+<body>
+    <button onclick = 'showTable()'> Show Table</button>&ensp;
+    <button onclick = 'showList()'> Show List</button>&ensp;
+    <button onclick = 'add2ndFlower()'> Add 2nd flower</button>&ensp;
+    <button onclick = 'hidePinkFlowers()'> Hide Pink Flowers</button>&ensp;
+    <button onclick = 'updateRoseFlower()'>Update Rose Flower</button><br>
+    <label><h3>List of Flowers</h3></label>
+
+    <script>
+        let arrayList = [{name:'rose',color:'pink'}, {name:'jasmine',color:'white'}, {name:'lily',color:'white'}];
+    
+        function buildList(arrayList){
+        let ul=document.createElement('ul');
+        let label=document.querySelector('label');
+        for(const item of arrayList){
+            let li=document.createElement('li');
+            li.innerHTML=item.name + "-"+item.color;
+            ul.append(li);
+            label.after(ul);
+        }
+        }
+
+        function showList(){
+            buildList(arrayList);
+          
+        }
+        
+        function showTable(){
+            let table=document.createElement('table');
+            let row=document.createElement('tr');
+            for(const elem in arrayList[0]){
+                let th=document.createElement('th');
+                th.innerHTML=elem;
+                tr.append(th);
+                table.append(row);
+
+            }
+            for(const elm2 in arrayList ){
+                let row2=document.createElement('tr');
+                for(const elm3 in elm2){
+                    let td=document.createElement('td');
+                    td.innnerHTML=elm2[elm3];
+                    row.append(td);
+                    table.append(row2);
+
+
+                }
+            }
+            /*
+            table.append(newRow);
+            }
+           document.querySelector("label").after(table)
+           document.getElementById("ulId").remove();
+            buildList(table);
+        }
+            */
+            document.querySelector('label').after()
+            document.querySelector('ul').
+           
+        }
+
+        function hidePinkFlowers(){
+            let myFilter = arrayList.filter(item=> item.color!="pink");
+            document.getElementById("ulId").remove();
+            buildList(myFilter);
+        }
+
+        function updateRoseFlower(){
+            let myFilter2 = arrayList.filter(item=>{//return (item.name=='rose'?'Rose':'');
+                if(item.name=="rose")//
+                item.name="Rose"
+                return item;
+            });
+            document.getElementById("ulId").remove()
+            buildList(myFilter2);
+            
+        }
+
+        function add2ndFlower(){
+            arrayList.splice(3,0,{name:"bogambilia",color:"pink"})
+            document.getElementById("ulId").remove()
+            buildList(arrayList);
+        }
+
+    </script>
+</body>
+</html>

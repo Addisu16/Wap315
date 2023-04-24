@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let interval;
+           window.onload=function(){
+            let divMe=document.getElementById('me');
+            console.log(divMe);
+            let divYou=document.getElementById('you');
+            console.log(divYou);
+            divMe.style.visibility='visible';
+            console.log(divMe.style.visibility);
+            divYou.style.visibility='hidden';
+            console.log(divYou.style.visibility);
+           
+
+            function started(){
+                console.log(started);
+            interval=setInterval(function(){
+                if(divMe.style.visibility==='hidden'){
+                    divYou.style.visibility='visible';
+                
+                }else{
+                    divYou.style.visibility='hidden';
+                    
+                }
+               
+            },1000);
+        }
+        
+    
+let newDiv=document.createElement('div');
+    let button=document.createElement('button');
+    button.innerHTML='started';
+    let button2=document.createElement('button');
+    button2.innerHTML='stoped';
+    button.onclick=started;
+    button2.onclick=stoped;
+    newDiv.append(button);
+    newDiv.append(button2);
+    document.body.append(newDiv)
+           
+    function stoped(){
+            clearInterval(interval);
+        }
+    }
+    </script>
+</head>
+<body>
+    <div id="me">Me</div>
+    <div id="you">you</div>
+</body>
+</html>

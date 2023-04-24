@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function readValues(){
+            let sex=document.querySelector("input[name='name']:checked");
+           
+            let sexValue=sex?sex.value:"";
+             console.log(sexValue);
+            let academyStatus=document.querySelector("input[name='FullName']");
+            let nameValue=academyStatus.value;
+            console.log(nameValue);
+
+            let emailAddress=document.querySelector("input[name='name']");
+            let email=emailAddress.value;
+
+            let educationLevel=document.querySelectorAll("input[name='checkBox']:checked");
+            let values="";
+            for(const eduLevel of educationLevel){
+                values+=eduLevel.value;
+                
+            }
+            console.log(values);
+            
+           let university=document.querySelectorAll("select[name='selection'] option:checked");
+           let school="";
+           for(const schools of university){
+            school+=schools.value;
+           }
+           console.log(school);
+
+        }
+    </script>
+</head>
+<body>
+    
+<label for="">sex
+    <input type="radio" name="name" value="Mr"><label >Mr</label>
+    <input type="radio" name="name" value="Ms"><label>Ms</label>
+    </label>
+</label>
+<br>
+<label for="">Full Name:
+    <input type="text" value="" name="FullName">
+
+</label>
+<br>
+<label for="">
+    E-mail:
+    <input type="text" name="email">
+</label><br>
+<input type="checkBox" name="checkBox" value="Msc"><label >MSc</label>
+<input type="checkBox" name="checkBox" value="BSc"><label>BSc</label>
+<input type="checkBox" name="checkBox" value="PhD"><label >PhD</label><br>
+
+<label for="">UploadFile
+    <input type="file" name="file" value="UploadFile">
+</label>
+</label>
+</label><br>
+<label for="">School
+   <select name="selection" id="select" >
+    <option value="MIU">MIU</option>
+    <option value="MIN">MIN</option>
+    <option value="MIT">MIT</option>
+    <option value="BDU">BDU</option>
+   </select>
+</label><br>
+<button onclick="readValues()" type="Submit">Submit</button>
+
+</body>
+</html>

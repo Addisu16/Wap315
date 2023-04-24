@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    let flowers=[{
+    name:'rose',
+    color:'pink'},
+    {name:'rose',color:'red'},
+    {name:'lily',color:'white'}];
+    window.onload=function(){
+        let div=document.createElement('div');
+        for(const flower of flowers){
+            
+            let input=document.createElement('input');
+            input.type='checkbox';
+           // input.value=flower.color;
+            let label=document.createElement('label');
+            label.innerHTML=flower.name +" - " + flower.color;
+            
+            label.append(input);
+
+            div.append(label);
+        }
+    
+
+        let button=document.createElement('button');
+        console.log(button);
+        button.innerHTML='Delete';
+        button.onclick=deleteButton;
+       div.append(button);
+        document.body.before(div);
+        
+        function deleteButton(){
+            let inputs=document.querySelectorAll('input');
+            let labels=document.querySelectorAll('label');
+            let i=0;
+            for(const input of inputs){
+                if(input.checked){
+                    input.remove();
+                    labels[i].remove();
+                }
+                i++;
+            }
+        }
+       
+    }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

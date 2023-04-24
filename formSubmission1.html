@@ -15,15 +15,22 @@
                 console.log(`${key}:${value}`);
                 if(key=='email'){
                     document.getElementById('myInput').innerHTML=value;
+                    
                 }else if(key=='password'){
                     document.querySelector('p').innerHTML=document.querySelector('p');
+                }else if(key==='selectKey'){
+                    document.querySelector('#mylabel').innerHTML=document.querySelector('#mylabel')+=value+"";
+                }
+
                 }
             }
-        }
+        
     </script>
 </head>
 <body>
     <label id="myInput"></label>
+    <label for="" id="mylabel">SelectedItems</label>
+    
     <p>password:</p>
     
 </body>

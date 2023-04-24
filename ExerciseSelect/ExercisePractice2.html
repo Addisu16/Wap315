@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+        function show(){
+        let state=document.querySelectorAll("select[name='name'] option:checked");
+        console.log(state);
+
+        let cityOfState=document.querySelectorAll("input[name='Iowa']:Checked");
+        let cityOfStates="";
+for(const cityies of cityOfState){
+
+    let cityValue=cityOfStates+cityies.value;
+if(cityValue.style.visiblity==='hidden'){
+    city.style.visiblity="visible";
+ } else{
+    city.style.visiblity="hidden";
+    }
+
+}
+}
+        
+    </script>
+</head>
+<body>
+    
+
+<label for="">State</label>
+<select name="name" id="" >
+    <option value="" required>select</option>
+    <option value="">Virginia</option>
+    <option value="">Iowa</option>
+</select>
+<br>
+
+<input type="CheckBox" name="Iowa" value="Fairfield"><label for="">Fairfield</label>
+<input type="CheckBox" name="Iowa" value="IowaCity"><label for="">IowaCity</label>
+<input type="CheckBox" name="Iowa" value="Burlington"><label for="">Burlington</label>
+<input type="CheckBox" name="Iowa" value="Madison"><label for="">Madison</label>
+
+
+<input type="CheckBox" name="Virginia" value="Woodbridge"><label for="">Woodbridge</label>
+<input type="CheckBox" name="Virginia" value="Alexanderia"><label for="">Alexanderia</label>
+<input type="CheckBox" name="Virginia" value="FairFax"><label for="">FairFax</label>
+<input type="CheckBox" name="Virginia" value="Arlington"><label for="">Arlington</label>
+<button type="button" onclick="show()">show</button>
+<button type="submit" >submit</button>
+
+
+
+
+</body>
+</html>

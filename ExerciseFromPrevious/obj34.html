@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .myCl{
+            padding: 10px;
+            border: solid brown 2px;
+            width: 70px;
+            font-size: medium;
+            margin: left 5px;
+        }
+    </style>
+    <script>
+    window.onload=onloadHandler;
+        let studName=['Michael','Gemechu','Getahun','Ephrem','Tekle']
+    function onloadHandler(){
+        buildList(studName);
+    }
+            function buildList(studName){
+                let myDiv = document.createElement("div")
+                myDiv.setAttribute("id","mdiv")
+                document.body.append(myDiv);
+                
+                for (let name of studName) {
+                    let checkBx = document.createElement("input")
+                    checkBx.setAttribute("type","checkbox")
+    
+                    let lbl = document.createElement("label")
+                    lbl.innerHTML=name
+                    myDiv.append(checkBx)
+                    myDiv.append(lbl)
+                    
+            }
+        }
+            function sortName(){
+                let sortedList=studName.sort();
+                document.querySelector('div').remove();
+                buildList(sortedList);
+            }
+
+            function filterList(){
+                let myFilter = studName.filter(item=> item.charAt(0)=='G');
+                document.getElementById('mdiv').remove();
+                buildList(myFilter);
+            }
+            function add(){
+                let addItem = document.getElementById("txt").value;
+                studName.push(addItem);
+                document.getElementById('mdiv').remove();
+                buildList(studName);
+            }
+            
+    
+    </script>
+</head>
+<body>
+    <button onclick="sortName()" class="myCl">Sort</button>&ensp;&emsp;
+    <button onclick="filterList()" class="myCl">Filter</button>&ensp;&emsp;
+    <button onclick="add()" class="myCl">Add</button><br><br>
+    <input type="text" id="txt" style="margin-left:60px;"><br><br>
+<!-- ======================================================================================= -->
+    
+</body>
+</html>
