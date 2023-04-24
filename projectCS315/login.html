@@ -31,11 +31,13 @@
           gap:15px;
           justify-content:center;
       }
+
       
   </style>
-</head>
-<body>
-    <div style="">
+  <script>
+    window.onload=function(){
+        let div=document.createElement('div');
+        div.innerHTML=` <div style="">
         <div style="background-color: rgb(201, 197, 197);text-align:center;margin:0px;" ><img src="https://signin-ui.costco.com/ecomssoui/541/common/Images/logo-bc-us.svg" alt="" style="width:px;height:40px"></div>
         <div style="font-weight:40px;font-size: 30px;margin-top:30px;text-align:center;margin-left: -300px;">Sign In</div>
    
@@ -58,8 +60,16 @@
            <label >Create Account</label> 
         </div>
     </div>
-</div>
+</div>`;
+document.body.append(div);
+    }
   
+
+  
+  </script>
+</head>
+<body>
+   
     <script>
         // let customerEmails=[{email:"email",password:"pwd"}];
         // let 
