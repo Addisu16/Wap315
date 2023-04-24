@@ -112,6 +112,7 @@
           }
               </style>
               Ratings
+              <div >
               <form class="rating" id="ratings">
                 
                   <label>
@@ -145,15 +146,16 @@
                     <span class="icon">★</span>
                   </label>
                 </form>
+              </div>
               <script>
                
-       $(':radio').on('change', function() {
-    // Get the value of the selected radio button
-    var rating = $('input[name="stars"]:checked').val();
+  //      $(':radio').on('change', function() {
+  //   // Get the value of the selected radio button
+  //   var rating = $('input[name="stars"]:checked').val();
 
-    // Log the rating value to the console
-    console.log("Rating: " + rating);
-  });
+  //   // Log the rating value to the console
+  //   console.log("Rating: " + rating);
+  // });
 
 
               </script>
@@ -217,7 +219,7 @@
   <script>
     var array = [];
     var index = 0;
-    var idsOfInputs = ["itemName", "category", "quantity","price","brand","itemDescription","productID","imageLinks","ratings"];
+    var idsOfInputs = ["itemName", "category", "quantity","price","brand","itemDescription","productID","image","ratings"];
 
     function createEditButton(){
       let editTd = document.createElement("td");
@@ -242,8 +244,8 @@
             item.brand=document.getElementById("brand").value;
             item.itemdescription=document.getElementById("itemDescription").value;
             item.productID=document.getElementById("productID").value;
-            item.imageLinks=document.getElementById("imageLinks").value;
-            item.ratings=document.getElementById("ratings").value;
+            item.image=document.getElementById("imageLinks").value;
+            item.ratings=querySelector("input[name='stars']:checked").value;
             
           }
         })
@@ -288,8 +290,8 @@
           brand:document.getElementById("brand").value,
           itemdescription:document.getElementById("itemDescription").value,
           productID:document.getElementById("productID").value,
-          imageLinks:document.getElementById("imageLinks").value,
-          ratings:document.getElementById("ratings").value,
+          image:document.getElementById("imageLinks").value,
+          ratings:document.querySelector("input[name='stars']:checked").value
           
         
         };
