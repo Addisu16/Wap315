@@ -25,8 +25,17 @@
         }
     </style>
     <script>
-        let array = {};
+        
+        var array = [];
+        var index = 0;
+        var inputs = ["itemName", "category","quantity","price","brand","itemDescription","itemProductID", "itemImage","itemRatings"];
+
+        // var prodcutArray = [{ name: 'dd', price: 30,image:'/ddd.jpeg' }, { name: 'dddd', price: 30 }];
+        // //Set Item on every change to the object array, add, delete and edit
+        //  localStorage.setItem('inventory', JSON.stringify(prodcutArray));
         function add() {
+            //itemName:name,
+        
             let itemName = document.getElementById('itemName').value;
             let itemCategory = document.getElementById('category').value;
             let itemQuantity = document.getElementById('quantity').value;
@@ -36,8 +45,24 @@
             let itemProductID = document.getElementById('itemProductID').value;
             let itemImage = document.getElementById('itemImage').value;
             let itemRatings = document.getElementById('itemRatings').value;
-
             let newRow = document.createElement('tr')
+
+            index++;
+      var item = {
+      id: index, name: document.getElementById("itemName").value,
+      Category: document.getElementById("category").value,
+      quantity: document.getElementById("quantity").value,
+      itemPrice:document.getElementById('price').value,
+      itemBrand:document.getElementById('brand').value,
+      itemDescription:document.getElementById('itemDescription').value,
+      itemProductID:document.getElementById('itemProductID').value,
+      image: document.getElementById("image").value,
+      quantity: document.getElementById("quantity").value
+      };
+      array.push(item);
+
+
+
             newRow.innerHTML = `<td for="itemName">${itemName}</td>
     <td for="itemCategory">${itemCategory}</td>
     <td for="itemQuantity">${itemQuantity}</td>
@@ -51,48 +76,75 @@
     <td><button onclick="deleteRow(this);">Delete</button></td>`;
             let table = document.getElementById('myTable');
             table.append(newRow);
+           
         }
-
-
-
         function editRow(self) {
             let parent = self.parentElement.parentElement;
             for (let i = 0; i < parent.children.length; i++) {
-                if (parent.children[i].getAttribute('for') == 'itemName')
-                    document.getElementById('itemName').value = parent.children[i].innerHTML;
-                else if (parent.children[i].getAttribute('for') == 'itemCategory')
+                if (parent.children[i].getAttribute('for') == 'itemName'){
+                document.getElementById('itemName').value=parent.children[i].innerHTML; 
+                parent.remove();
+                 } else if (parent.children[i].getAttribute('for') == 'itemCategory'){
                     document.getElementById('category').value = parent.children[i].innerHTML;
-                else if (parent.children[i].getAttribute('for') == 'itemQuantity')
+                    parent.remove();
+                 }else if (parent.children[i].getAttribute('for') == 'itemQuantity'){
                     document.getElementById('quantity').value = parent.children[i].innerHTML;
-                else if (parent.children[i].getAttribute('for') == 'itemPrice')
+                    parent.remove();
+                 }else if (parent.children[i].getAttribute('for') == 'itemPrice'){
                     document.getElementById('price').value = parent.children[i].innerHTML;
-                else if (parent.children[i].getAttribute('for') == 'itemBrand')
+                    parent.remove();
+                 }else if (parent.children[i].getAttribute('for') == 'itemBrand'){
                     document.getElementById('brand').value = parent.children[i].innerHTML;
-                else if (parent.children[i].getAttribute('for') == 'itemDescription')
+                    parent.remove();
+                 }else if (parent.children[i].getAttribute('for') == 'itemDescription'){
                     document.getElementById('itemDescription').value = parent.children[i].innerHTML;
-                else if (parent.children[i].getAttribute('for') == 'itemProductID')
+                    parent.remove();
+                 }else if (parent.children[i].getAttribute('for') == 'itemProductID'){
                     document.getElementById('itemProductID').value = parent.children[i].innerHTML;
-                else if (parent.children[i].getAttribute('for') == 'itemImage')
+                    parent.remove();
+                  } else if (parent.children[i].getAttribute('for') == 'itemImage'){
                     document.getElementById('itemImage').value = parent.children[i].innerHTML;
-                else if (parent.children[i].getAttribute('for') == 'itemRatings')
+                    parent.remove();
+                  }else if (parent.children[i].getAttribute('for') == 'itemRatings'){
                     document.getElementById('itemRatings').value = parent.children[i].innerHTML;
+                    parent.remove();
 
             }
         }
+    }
 
         function deleteRow(self) {
             let parent = self.parentElement.parentElement;
             parent.remove();
         }
+        /*function clearEditingBar() {
+  const editingBar = document.getElementById("itemName");
+  editingBar.value = "";
+}
+document.createElement('button');
 
+const button = document.getElementById("clear-button");
+button.addEventListener("click", clearEditingBar);*/
+// function clearThis(target) {
+//     const editingBar = document.getElementById("itemName");
+
+//  if (target.value ==editingBar) {
+
+//  target.value = "";
+
+//  }
+
+// }
     </script>
 </head>
 
 <body>
-<header style="font-style: italic;color:darkred;border:2px solid red;text-align: center;font-size: larger;background-color: azure;">Welcome to the Inventory Page
-    in this page you can add,edit and delete your items.
-</header><br>
-    Name:<input type="text" id='itemName' />
+    <header
+        style="font-style: italic;color:darkred;border:2px solid red;text-align: center;font-size: larger;background-color: azure;">
+        Welcome to the Inventory Page
+        in this page you can add,edit and delete your items.
+    </header><br>
+    Name:<input type="text" id='itemName' placeholder="value"/>
     Category:<input type="text" id='category' />
     Quantity:<input type="text" id='quantity' />
     Price:<input type="text" id='price' />
