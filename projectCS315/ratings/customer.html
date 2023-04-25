@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var obj = JSON.parse(localStorage.getItem('inventory'));
+        for (let i = 0; i < localStorage.length; i++){
+            //let key = localStorage.key(i);
+            let value = localStorage.getItem(key);
+            console.log(key, value);
+        }
+
+
+
+function displayProduct(arr) {
+  for (let element of arr) {
+    let newItem = document.createElement("div");
+    newItem.className = "box products";
+
+    newItem.innerHTML = 
+    `<div id='newItems'>
+       
+        <a href="selectedProduct.html?image=${element.image}&title=${element.title}&quantity=${element.quantity}&price=${element.price}&rating=${element.rating}">
+        <img src='/Images/${element.image}' id='newImages'></a>
+          
+        <div>
+
+            <div id='offer'>Offers</div><br>
+            <a href="selectedProduct.html?image=${element.image}&title=${element.title}&quantity=${element.quantity}&price=${element.price}&rating=${element.rating}">
+            ${element.title}</a>
+
+            <br><br>
+            ${rateMe(element.rating)}- ${element.rating}
+
+        </div>
+
+        <div style='font-weight:bold'>$ ${element.price} </div>
+        
+        <div>More than (${element.quantity}) Available</div>
+        <a href="selectedProduct.html?image=${element.image}&title=${element.title}&quantity=${element.quantity}&price=${element.price}&rating=${element.rating}">
+        <button id='addToCart'>Add to cart</button></a>
+    
+    </div>`;
+    dept.append(newItem);
+    document.body.append(dept)
+  }
+}
+
+      </script>
+     
+ <title>Local Storage Example</title>
+</head>
+<body>
+ 
+   
+    <style>
+        #output {
+            font-size: 24px;
+        }
+    </style>
+
+
+    <div id="output"></div>
+    
+    <script src="script.js"></script>
+
+
+</body>
+</html>

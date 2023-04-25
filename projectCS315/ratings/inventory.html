@@ -26,11 +26,9 @@
     </style>
     <script>
         
-        var array = [];
-        var index = 0;
-        var inputs = ["itemName", "category","quantity","price","brand","itemDescription","itemProductID", "itemImage","itemRatings"];
-
-        // var prodcutArray = [{ name: 'dd', price: 30,image:'/ddd.jpeg' }, { name: 'dddd', price: 30 }];
+        
+        var prodcutArray=[];
+       
         // //Set Item on every change to the object array, add, delete and edit
         //  localStorage.setItem('inventory', JSON.stringify(prodcutArray));
         function add() {
@@ -45,21 +43,29 @@
             let itemProductID = document.getElementById('itemProductID').value;
             let itemImage = document.getElementById('itemImage').value;
             let itemRatings = document.getElementById('itemRatings').value;
+            prodcutArray.push({ name: itemName, category:itemCategory,Quantity:itemQuantity,price:itemPrice,
+            image:itemImage,ratings:itemRatings });
+            localStorage.setItem('inventory', JSON.stringify(prodcutArray));
             let newRow = document.createElement('tr')
+         
+            
+    //         index++;
+    //   var item = {
+    //   id: index, name: document.getElementById("itemName").value,
+    //   Category: document.getElementById("category").value,
+    //   quantity: document.getElementById("quantity").value,
+    //   itemPrice:document.getElementById('price').value,
+    //   itemBrand:document.getElementById('brand').value,
+    //   itemDescription:document.getElementById('itemDescription').value,
+    //   itemProductID:document.getElementById('itemProductID').value,
+    //   image: document.getElementById("image").value,
+    //   itemProductID:document.getElementById('itemProductID').value,
+    //   itemImage:document.getElementById('itemImage').value,
+    //   itemRatings:document.getElementById('itemRatings').value,
 
-            index++;
-      var item = {
-      id: index, name: document.getElementById("itemName").value,
-      Category: document.getElementById("category").value,
-      quantity: document.getElementById("quantity").value,
-      itemPrice:document.getElementById('price').value,
-      itemBrand:document.getElementById('brand').value,
-      itemDescription:document.getElementById('itemDescription').value,
-      itemProductID:document.getElementById('itemProductID').value,
-      image: document.getElementById("image").value,
-      quantity: document.getElementById("quantity").value
-      };
-      array.push(item);
+
+    //   };
+      
 
 
 
@@ -151,7 +157,7 @@ button.addEventListener("click", clearEditingBar);*/
     Brand:<input type="text" id='brand' />
     Description:<input type="text" id='itemDescription' />
     ProductID:<input type="text" id='itemProductID' />
-    Image:<input type="link" id='itemImage' />
+    Image:<input type="file" id='itemImage' />
     <select id='itemRatings' class="rating">
         Ratings
         <option value="1">★</option>
