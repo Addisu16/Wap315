@@ -43,7 +43,7 @@
             let itemProductID = document.getElementById('itemProductID').value;
             let itemImage = document.getElementById('itemImage').value;
             let itemRatings = document.getElementById('itemRatings').value;
-            prodcutArray.push({ name: itemName, category:itemCategory,Quantity:itemQuantity,price:itemPrice,
+            prodcutArray.push({ name: itemName, category:itemCategory,quantity:itemQuantity,price:itemPrice,brand:itemBrand,Description:itemDescription,productId:itemProductID,
             image:itemImage,ratings:itemRatings });
             localStorage.setItem('inventory', JSON.stringify(prodcutArray));
             let newRow = document.createElement('tr')
@@ -105,24 +105,7 @@
             let parent = self.parentElement.parentElement;
             parent.remove();
         }
-        /*function clearEditingBar() {
-  const editingBar = document.getElementById("itemName");
-  editingBar.value = "";
-}
-document.createElement('button');
-
-const button = document.getElementById("clear-button");
-button.addEventListener("click", clearEditingBar);*/
-// function clearThis(target) {
-//     const editingBar = document.getElementById("itemName");
-
-//  if (target.value ==editingBar) {
-
-//  target.value = "";
-
-//  }
-
-// }
+        
     </script>
 </head>
 
@@ -138,8 +121,8 @@ button.addEventListener("click", clearEditingBar);*/
     Price:<input type="text" id='price' />
     Brand:<input type="text" id='brand' />
     Description:<input type="text" id='itemDescription' />
-    ProductID:<input type="text" id='itemProductID' />
-    Image:<input type="file" id='itemImage' />
+    ProductID:<input type="text" id='itemProductID' value="productID" />
+    Image:<input type="text" id='itemImage' />
     <select id='itemRatings' class="rating">
         Ratings
         <option value="1">★</option>
