@@ -9,7 +9,7 @@
     <script>
         var obj = JSON.parse(localStorage.getItem('inventory'));
         for (let i = 0; i < localStorage.length; i++){
-            //let key = localStorage.key(i);
+            let key = localStorage.key(i);
             let value = localStorage.getItem(key);
             console.log(key, value);
         }
@@ -24,13 +24,13 @@ function displayProduct(arr) {
     newItem.innerHTML = 
     `<div id='newItems'>
        
-        <a href="selectedProduct.html?image=${element.image}&title=${element.title}&quantity=${element.quantity}&price=${element.price}&rating=${element.rating}">
+        <a href="selectedProduct.html?image=${element.name}&title=${element.title}&quantity=${element.quantity}&price=${element.price}&rating=${element.rating}">
         <img src='/Images/${element.image}' id='newImages'></a>
           
         <div>
 
             <div id='offer'>Offers</div><br>
-            <a href="selectedProduct.html?image=${element.image}&title=${element.title}&quantity=${element.quantity}&price=${element.price}&rating=${element.rating}">
+            <a href="inventory.html?image=${element.image}&title=${element.title}&quantity=${element.quantity}&price=${element.price}&rating=${element.rating}">
             ${element.title}</a>
 
             <br><br>
