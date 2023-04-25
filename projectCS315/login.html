@@ -108,20 +108,64 @@
     <script>
         // let customerEmails=[{email:"email",password:"pwd"}];
         // let 
-        function submit() {
-            let email = document.getElementById("email").value;
-            let pwd = document.getElementById("password").value;
-            let isManager = (email === 'manager@email.com');
-            if (isManager && pwd==='123456') {
-                window.location.href = "inventory.html";
-            } else if (!isManager && pwd!=='123456') {
-                window.location.href = "main.html";
-            } else {
-                window.location.href = "";
-            }
-        }
-        
-     
+        // function submit() {
+        //     let email = document.getElementById("email").value;
+        //     let pwd = document.getElementById("password").value;
+
+        //     let isManager = (email === 'manager@email.com');
+        //     if (isManager && pwd==='123456') {
+        //         if(!isManager && pwd==='123456'){
+        //             let email = document.getElementById("email");
+        //             email.style.borderColor = 'red';
+        //             console.log('wrong ')
+        //         }else{
+        //         window.location.href = "inventory.html";
+        //         }
+        //     } else if (!isManager && pwd!=='123456') {
+        //         window.location.href = "productList.html";
+        //     } else {
+        //         window.location.href = "";
+        //     }
+        // }
+function submit() {
+  let email = document.getElementById("email").value;
+  let pwd = document.getElementById("password").value;
+
+  // email validation
+  if (!validateEmail(email)) {
+    let emailInput = document.getElementById("email");
+    emailInput.style.borderColor = 'red';
+    return;
+  }
+  //password 
+  if (!validatePassword(pwd)) {
+    let pwdInput = document.getElementById("password");
+    pwdInput.style.borderColor = 'red';
+    return;
+  }
+
+  let isManager = (email === 'manager@email.com');
+
+  if (isManager && pwd === '123456') {
+    window.location.href = "inventory.html";
+  } else if (!isManager && pwd === '123456') {
+    window.location.href = "productList.html";
+  } else {
+    window.location.href = "";
+  }
+}
+
+function validateEmail(email) {
+  // email validation regular expression
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+
+}
+function validatePassword(password) {
+  // password validation rules
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  return passwordRegex.test(password);
+}
     </script>
 </body>
 
