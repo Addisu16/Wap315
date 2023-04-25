@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var obj = JSON.parse(localStorage.getItem('inventory'));
+       console.log(obj);
+
+            window.onload=function(){
+            //  for (var i = 0; i < obj.length; i++){
+            // document.body.append(obj[i].);
+            //  }
+            // let key=localStorage.key(i);
+            // let value=localStorage.getItem(key());
+            // console.log(key);
+            // console.log(value);
+            // console.log(localStorage.getItem(name));
+//             document.body.append(Object.keys(localStorage).forEach(function(key){
+//    console.log(localStorage.getItem(key));
+//}));
+
+function showItemsByKey() {
+
+   var typeofKey = null;
+   let div2=document.createElement('div');
+   for (var key of obj) {
+       if(key[name]=='name'){
+        console.log(key[name]=='name');
+        div2.innerHTML=key[name];
+
+       }
+    }
+      document.body.append(div2);
+       console.log(key, typeofKey);
+   }
+
+let div=document.createElement('div');
+    
+        let button=document.createElement('button');
+         button.innerHTML='show';
+
+        button.onclick=showItemsByKey;
+        div.append(button);
+        document.body.append(div);
+
+}
+        
+    
+    
+    
+        // mainDiv.append(button);
+        // function sortFun(){  
+        //  let selection=document.querySelector('#selectId');
+        //  console.log(selection);
+        //  selection.innerHTML='';
+        //  for(const fruitSort of fruits.sort()){
+        //     selection.innerHTML+="<option>" + fruitSort +"</option>"
+
+         
+
+
+        
+
+    </script>
+       
+        </script>
+
+     
+ <title>Local Storage Example</title>
+</head>
+<body>
+
+
+</body>
+</html>
