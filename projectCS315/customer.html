@@ -132,6 +132,13 @@
      
   
   <div>
+
+
+    <select name="" id="sort-select" onchange="compare()">
+      
+      <option value="priceLowToHigh" id="lowToHigh">priceLowToHigh</option>
+      <option value="priceHighToLow" id="highToLow">priceHighToLow</option>
+    </select>
 <div id="inventory-list"></div>
   </div>
 </div>
@@ -145,10 +152,10 @@
     var div = document.getElementById('inventory-list');
     // console.log(div.id);
     div.setAttribute('style', 'display:flex;gap:10px;flex-wrap:wrap;');
-    let btn = document.createElement('button');
-    btn.setAttribute('onclick', 'compare()');
-    btn.innerHTML = 'sort';
-    div.before(btn);
+    // let btn = document.createElement('button');
+    // btn.setAttribute('onclick', 'compare()');
+    // btn.innerHTML = 'sort';
+    // div.before(btn);
     create(obj);
 
 
@@ -193,6 +200,8 @@
       if (addToCartBt) {
         console.log(addToCartBt);
         window.location.href = "selectedProduct.html";
+
+        
       }
 
     }
@@ -207,7 +216,7 @@
 							<div>
 								<div>${elem.name}</div>
 								<p>${elem.category}</p>
-								<p>$${elem.price}</p>
+								<p>${elem.price}</p>
 								<p>${elem.ratings}</p>
                 <button class="minusBtn" id="minus-to-cart">-</button>
                 <button class="plusBtn" id="plus-to-cart">+</button>
@@ -217,10 +226,26 @@
 					`;
       }
     }
+// const lowToHigh = document.getElementById('lowToHigh');
+// lowToHigh.addEventListener('change', compare);
 
-    function compare() {
-      let newlist = obj.sort((a, b) => (a.name > b.name) ? 1 : -1);
-      create(newlist);
+// const highToLow = document.getElementById('highToLow');
+// highToLow.addEventListener('change', compare);
+
+function compare() {
+    const selectElement = document.getElementById('option:checked');
+    console.log(selectElement);
+    const selectedOption = selectElement.value;
+
+    let createList;
+    if (selectedOption === 'lowToHigh') {
+      createList = obj.sort((a, b) => a.price - b.price);
+    } else if (selectedOption === 'highToLow') {
+      createList = obj.sort((a, b) => b.price - a.price);
+    } else {
+      createList = obj;
+    }
+    create(createList);
       
   const minusBtns = document.getElementsByClassName('minusBtn');
   const plusBtns = document.getElementsByClassName('plusBtn');
@@ -238,6 +263,38 @@
     addToCartBtns[i].addEventListener('click', addToCart);
   }
 }
+
+
+
+
+
+//This is new filter
+
+//  Searching items
+//let searchBtn=document.getElementById("searchBtn");
+// let searchItem=document.getElementById("searchItem");
+
+// searchBtn.onclick=function(){
+  
+//   let searchArr=product.filter(current=>current.category==searchItem.value);
+
+//   if(searchItem.value=="" ){
+//     dept.innerHTML="";
+//     displayProduct(product)
+//   }else if(searchArr.length==0){
+//     dept.innerHTML="";
+//     dept.innerHTML=
+//     "<div style='margin-left:600px;'><h1>No result Found</h1><div>"
+//   }else{
+//     dept.innerHTML="";
+//     displayProduct(searchArr);
+//   }
+// }
+
+// Filtering by rate and price
+
+  
+
 
    
 
