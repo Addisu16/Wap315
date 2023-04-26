@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        /* .roundImage {
+          border-radius:50%;
+          width:100px;
+          object-fit:cover;
+          height:100px;
+          justify-self:center;
+      } */
+        .main {
+
+            display: grid;
+            /* flex-direction:column; */
+            margin: auto;
+            gap: 15px;
+            width: 350px;
+            font-size: 20px;
+            margin-top: 20px;
+
+            right: 0%;
+            /* width:40%; */
+            border: 1px solid rgb(188, 181, 181);
+            padding: 15px;
+        }
+
+        .innerDiv {
+            display: gr;
+            /* border:1px solid; */
+            grid-template-columns: 1fr 2fr;
+            gap: 15px;
+            justify-content: center;
+        }
+    </style>
+    <script>
+       /* window.onload = function () {
+            let div = document.createElement('div');
+            div.innerHTML = `  <div style="">
+        <div style="background-color: rgb(201, 197, 197);text-align:center;margin:0px;" ><img src="https://signin-ui.costco.com/ecomssoui/541/common/Images/logo-bc-us.svg" alt="" style="width:px;height:40px"></div>
+        <div style="font-weight:40px;font-size: 30px;margin-top:30px;text-align:center;margin-left: -300px;">Sign In</div>
+   
+    <div class ="main">
+        
+        <div class="innerDiv" style="min-height: 10px;max-width:80px;padding:5px;">
+            <input type="email" id="email" placeholder="Email Address" style="min-width:300px;min-height:30px;margin:5px;border-radius:4px;" />
+            <input type="password" id="password" placeholder="password" style="min-width:300px;min-height:30px;margin:5px;border-radius:4px" required  /><i class="fa-solid fa-eye" id="eye"></i><br>
+           
+            <div style="font-size: x-small;color:blue;margin-top:2px;margin-left:8px;border-bottom:1px dotted;border-spacing: 10px;">Forgot Password?</div>
+        </div>
+    
+        <div>
+            <input type="checkbox"><label style="font-size: small;">Keep me signed in.</label><br>
+            <label style="font-size: xx-small;">Check this box only when on a private device.</label>
+        </div>
+        <div style="justify-self:center;align-content: center;text-align: center;border:2px solid rgba(17, 17, 80, 0.329);width:150px;background-color: blue;"><button  onclick="submit();" style="background-color: blue;border:0px;color:white">Sign In</button></div><br>
+        <div style="border:0.01px solid #d3cfcf;"></div>
+        <div style="" >New to Costco?</div>
+        <div style="background-color: #dcd7d7;color:rgb(120, 120, 203);padding:10px;text-align:center;font-size: 15px;">
+           <label >Create Account</label> 
+        </div>
+    </div>
+   
+</div>
+<div style="border:1px solid grey;margin-bottom: 0px;text-align:center;background-color: rgb(195, 187, 187);padding: 40px;gap:40px;margin-top: 40px;margin-bottom: 0px;">
+    Terms and Conditions  Privacy Rights <br>
+    © 2023 Costco Wholesale Corporation. All rights reserved.
+</div>`
+            document.body.append(div);
+        }*/
+
+    </script>
+</head>
+
+<body>
+
+    <div style="">
+        <div style="background-color: #f4f0f0;text-align:center;PADDING:25PX;width:100%;height:100%;margin-top:-10px;margin-left:-5px;" ><img src="https://signin-ui.costco.com/ecomssoui/541/common/Images/logo-bc-us.svg" alt="" style="width:px;height:40px"></div>
+        <div style="font-weight:40px;font-size: 30px;margin-top:30px;text-align:center;margin-left: -300px;">Sign In</div>
+   
+    <div class ="main">
+        
+        <div class="innerDiv" style="min-height: 10px;max-width:80px;padding:5px;">
+            <input type="email" id="email" placeholder="Email Address" style="min-width:300px;min-height:30px;margin:5px;border-radius:4px;" />
+            <input type="password" id="password" placeholder="password" style="min-width:300px;min-height:30px;margin:5px;border-radius:4px" required  /><i class="fa-solid fa-eye" id="eye"></i><br>
+           
+            <div style="font-size: x-small;color:blue;margin-top:2px;margin-left:8px;border-bottom:1px dotted;border-spacing: 10px;">Forgot Password?</div>
+        </div>
+    
+        <div>
+            <input type="checkbox"><label style="font-size: small;">Keep me signed in.</label><br>
+            <label style="font-size: xx-small;">Check this box only when on a private device.</label>
+        </div>
+        <div style="justify-self:center;align-content: center;text-align: center;border:2px solid rgba(17, 17, 80, 0.329);width:150px;background-color: blue;"><button  onclick="submit();" style="background-color: blue;border:0px;color:white">Sign In</button></div><br>
+        <div style="border:0.01px solid #d3cfcf;"></div>
+        <div style="" >New to Costco?</div>
+        <div style="background-color: #dcd7d7;color:rgb(120, 120, 203);padding:10px;text-align:center;font-size: 15px;">
+           <label >Create Account</label> 
+        </div>
+    </div>
+   
+</div>
+<div style="border:1px solid grey;margin-bottom: 0px;text-align:center;background-color: rgb(195, 187, 187);padding: 40px;gap:40px;margin-top: 40px;width:100%;height:100%;margin-left:-10px;margin-bottom: -20px;">
+    Terms and Conditions  Privacy Rights <br>
+    © 2023 Costco Wholesale Corporation. All rights reserved.
+</div>
+    <script>
+        // let customerEmails=[{email:"email",password:"pwd"}];
+        // let 
+        // function submit() {
+        //     let email = document.getElementById("email").value;
+        //     let pwd = document.getElementById("password").value;
+
+        //     let isManager = (email === 'manager@email.com');
+        //     if (isManager && pwd==='123456') {
+        //         if(!isManager && pwd==='123456'){
+        //             let email = document.getElementById("email");
+        //             email.style.borderColor = 'red';
+        //             console.log('wrong ')
+        //         }else{
+        //         window.location.href = "inventory.html";
+        //         }
+        //     } else if (!isManager && pwd!=='123456') {
+        //         window.location.href = "productList.html";
+        //     } else {
+        //         window.location.href = "";
+        //     }
+        // }
+function submit() {
+  let email = document.getElementById("email").value;
+  let pwd = document.getElementById("password").value;
+
+  // email validation
+  if (!validateEmail(email)) {
+    let emailInput = document.getElementById("email");
+    emailInput.style.borderColor = 'red';
+    return;
+  }
+  //password 
+  if (!validatePassword(pwd)) {
+    let pwdInput = document.getElementById("password");
+    pwdInput.style.borderColor = 'red';
+    return;
+  }
+
+  let isManager = (email === 'msd@email.com');
+
+  if (isManager && pwd === 'Msd++1234') {
+    window.location.href = "inventory.html";
+  } else if (!isManager && pwd === '') {
+    window.location.href = "productList.html";
+  } else {
+    window.location.href = "";
+  }
+}
+
+function validateEmail(email) {
+  // email validation regular expression
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+
+}
+function validatePassword(password) {
+  // password validation rules
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  return passwordRegex.test(password);
+}
+    </script>
+</body>
+
+</html>

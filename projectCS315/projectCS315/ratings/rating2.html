@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .inventory-item {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.item-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-name {
+  font-size: 24px;
+  margin: 0 0 10px 0;
+}
+
+.item-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.rating-image {
+  width: 100px;
+  height: 20px;
+}
+
+.rating-count {
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.item-description {
+  font-size: 18px;
+  margin: 0;
+}
+
+</style>
+</head>
+<body>
+    <div class="inventory-item">
+        <img src="/image/addisu.jpg" alt="Product Image" class="item-image">
+        <div class="item-info">
+          <h2 class="item-name">Product Name</h2>
+          <div class="item-rating">
+            <img src="star-rating.png" alt="Star Rating" class="rating-image">
+            <span class="rating-count">(4.5)</span>
+          </div>
+          <p class="item-description">Product Description</p>
+        </div>
+      </div>
+</body>
+</html>
