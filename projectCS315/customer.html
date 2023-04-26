@@ -136,8 +136,10 @@
 
     <select name="" id="sort-select" onchange="compare()">
       
-      <option value="priceLowToHigh" id="lowToHigh">priceLowToHigh</option>
-      <option value="priceHighToLow" id="highToLow">priceHighToLow</option>
+      <option value="lowToHigh" id="lowToHigh">priceLowToHigh</option>
+      <option value="highToLow" id="highToLow">priceHighToLow</option>
+      <option value="ratings" id="highToLow">ratingsHigh</option>
+     
     </select>
 <div id="inventory-list"></div>
   </div>
@@ -233,7 +235,7 @@
 // highToLow.addEventListener('change', compare);
 
 function compare() {
-    const selectElement = document.getElementById('option:checked');
+    const selectElement = document.getElementById('sort-select');
     console.log(selectElement);
     const selectedOption = selectElement.value;
 
@@ -242,6 +244,8 @@ function compare() {
       createList = obj.sort((a, b) => a.price - b.price);
     } else if (selectedOption === 'highToLow') {
       createList = obj.sort((a, b) => b.price - a.price);
+    } else if (selectedOption === 'ratings') {
+      createList = obj.sort((a, b) => b.ratings - a.ratings);
     } else {
       createList = obj;
     }
