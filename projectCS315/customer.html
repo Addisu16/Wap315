@@ -5,59 +5,7 @@
 <head>
     <title>Customer Items</title>
 </head>
-<script>
 
-  // Parse the 'inventory' item from localStorage
-window.onload=function(){
-
-
-  var obj = JSON.parse(localStorage.getItem('inventory'));
-  console.log(obj);
-  var div = document.createElement('div');
-  //for (let value of obj) {
-    
-    for (let value in obj) {
-      
-      let img = document.createElement('img');
-      if (value === 'image') {
-        img.src = "projectCS315/imageCollection/" +obj[value];
-        div.before(img);
-
-      }
-  
-    }
-      document.body.after(div);
-      console.log(div);
-     
-const addToCartBtn = document.getElementById('add-to-cart');
-const minusBtn = document.getElementById('minus-to-cart');
-const plusBtn = document.getElementById('plus-to-cart');
-addToCartBtn.addEventListener('click', addToCart);
-minusBtn.addEventListener('click', minusToCart);
-plusBtn.addEventListener('click', plusToCart);
-
-function addToCart() {
-  const cartCounter = document.getElementById('cart-counter');
-  const count = parseInt(cartCounter.innerText);
-  cartCounter.innerText = count + 1;
-}
-function minusToCart() {
-  const cartCounter = document.getElementById('cart-counter');
-  const count = parseInt(cartCounter.innerText);
-  if(count>0){
-  cartCounter.innerText = count - 1;
-  }
-}
-function plusToCart() {
-  const cartCounter = document.getElementById('cart-counter');
-  const count = parseInt(cartCounter.innerText);
-  if(count>=1){
-  cartCounter.innerText = count + 1;
-  }
-}
-}
-
-</script>
 
 <body>
   <!--   <div id="inventory-list">
@@ -111,10 +59,28 @@ function plusToCart() {
                   </div>
 
                 <div>
-          <p>Cart: <span id="cart-counter">0</span></p>
-                    <img src="https://img.icons8.com/doodle/1x/shopping-cart.png" alt="" style="width:20px;"><label    
-                    for="">Cart</label>
+          <div id="cartId">
+           <button onclick="display()"> <span type="button" id="cart-counter" >0</span><img src="https://img.icons8.com/doodle/1x/shopping-cart.png" alt="" style="width:20px;"></button>
+          </div>
+          
+        
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+                    
                   </div>
 
               </div>
@@ -183,14 +149,80 @@ function plusToCart() {
       <div class="btn">
 
           <!-- Button to add item to cart -->
-          <button class="mainBtn" id="add-to-cart">Add To cart</button>
           <button class="minusBtn" id="minus-to-cart">-</button>
           <button class="plusBtn" id="plus-to-cart">+</button>
+          <button class="mainBtn" id="add-to-cart">Add To cart</button>
+         
          
 
       </div>
   </div>
 
+
+
+
+  <script>
+
+    // Parse the 'inventory' item from localStorage
+  
+  
+  
+    var obj = JSON.parse(localStorage.getItem('inventory'));
+    console.log(obj);
+    var div = document.createElement('div');
+    //for (let value of obj) {
+      
+      for (let value in obj) {
+        
+        let img = document.createElement('img');
+        if (value === 'image') {
+          img.src = "projectCS315/imageCollection/" +obj[value];
+          div.before(img);
+  
+        }
+    
+      }
+        document.body.after(div);
+        console.log(div);
+       
+  const addToCartBtn = document.getElementById('add-to-cart');
+  const minusBtn = document.getElementById('minus-to-cart');
+  const plusBtn = document.getElementById('plus-to-cart');
+  addToCartBtn.addEventListener('click', addToCart);
+  minusBtn.addEventListener('click', minusToCart);
+  plusBtn.addEventListener('click', plusToCart);
+  
+  function addToCart() {
+    const cartCounter = document.getElementById('cart-counter');
+    const count = parseInt(cartCounter.innerText);
+    cartCounter.innerText = count + 1;
+  }
+  function minusToCart() {
+    const cartCounter = document.getElementById('cart-counter');
+    const count = parseInt(cartCounter.innerText);
+    if(count>0){
+    cartCounter.innerText = count - 1;
+    }
+  }
+  function plusToCart() {
+    const cartCounter = document.getElementById('cart-counter');
+    const count = parseInt(cartCounter.innerText);
+    if(count>=1){
+    cartCounter.innerText = count + 1;
+    }
+  }
+  
+  function display(){
+    const addToCartBt = document.getElementById('cartId');
+    if(addToCartBt){
+    console.log(addToCartBt);
+      window.location.href = "selectedProduct.html";
+    }
+  
+  }
+  
+  
+  </script>
  
 </body>
 
