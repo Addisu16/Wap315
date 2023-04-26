@@ -8,8 +8,7 @@
 
 
 <body>
-  <!--   <div id="inventory-list">
-     </div> -->
+   
     <div>
         <div style="border:1px solid rgb(206, 201, 201);background-color: rgb(243, 236, 236);">
             <div
@@ -34,7 +33,7 @@
 
                     <option value="">US</option>
                   </select>
-            
+           
       </div>
             <div style="display:flex;gap:15px;margin:10px; color: blue;">
 
@@ -60,28 +59,15 @@
 
                 <div>
           <div id="cartId">
-           <button onclick="display()"> <span type="button" id="cart-counter" >0</span><img src="https://img.icons8.com/doodle/1x/shopping-cart.png" alt="" style="width:20px;"></button>
+            <button onclick="display()"> <span type="button" id="cart-counter">0</span><img
+                src="https://img.icons8.com/doodle/1x/shopping-cart.png" alt="" style="width:20px;"></button>
           </div>
-          
-        
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-          
-                    
-                  </div>
+                 
+        </div>
 
               </div>
 
@@ -113,6 +99,7 @@
             <label for="">Locations</label>
 
           </div>
+
         <div      
       style="display: flex; justify-content: space-between;border-bottom: 1px solid gray; padding:10px;background-color:rgb(244, 237, 237) ;">
 
@@ -128,102 +115,135 @@
               src="https://img.freepik.com/free-icon/box-closed_318-48060.jpg?size=626&ext=jpg" alt=""              
               style="width: 15px;"> 52556</div>
                   </div>
-              </div>
-            <div>
-                <div style="color: blue;">
+        <div style="color: blue;">
 
                     Lists/ Buy Again
 
                   </div>
 
-              </div>
 
-          </div>
+             
+              </div>
+            </div>
+       
+   
 
-      </div>
 
-
-<!--Button to add to cart-->
-
-    <div class="main">
-      <div class="btn">
-
-          <!-- Button to add item to cart -->
-          <button class="minusBtn" id="minus-to-cart">-</button>
-          <button class="plusBtn" id="plus-to-cart">+</button>
-          <button class="mainBtn" id="add-to-cart">Add To cart</button>
-         
-         
-
-      </div>
+     
+  
+  <div>
+<div id="inventory-list"></div>
   </div>
-
-
-
+</div>
 
   <script>
 
-    // Parse the 'inventory' item from localStorage
-  
-  
-  
     var obj = JSON.parse(localStorage.getItem('inventory'));
-    console.log(obj);
-    var div = document.createElement('div');
-    //for (let value of obj) {
-      
-      for (let value in obj) {
-        
-        let img = document.createElement('img');
-        if (value === 'image') {
-          img.src = "projectCS315/imageCollection/" +obj[value];
-          div.before(img);
-  
-        }
-    
+
+    // Parse the 'inventory' item from localStorage
+
+    var div = document.getElementById('inventory-list');
+    // console.log(div.id);
+    div.setAttribute('style', 'display:flex;gap:10px;flex-wrap:wrap;');
+    let btn = document.createElement('button');
+    btn.setAttribute('onclick', 'compare()');
+    btn.innerHTML = 'sort';
+    div.before(btn);
+    create(obj);
+
+
+    const minusBtns = document.getElementsByClassName('minusBtn');
+  const plusBtns = document.getElementsByClassName('plusBtn');
+  const addToCartBtns = document.getElementsByClassName('mainBtn');
+  for (let i = 0; i < minusBtns.length; i++) {
+    minusBtns[i].addEventListener('click', minusToCart);
+  }
+
+  for (let i = 0; i < plusBtns.length; i++) {
+    plusBtns[i].addEventListener('click', plusToCart);
+  }
+
+  for (let i = 0; i < addToCartBtns.length; i++) {
+    addToCartBtns[i].addEventListener('click', addToCart);
+  }
+
+
+    function addToCart() {
+      const cartCounter = document.getElementById('cart-counter');
+      const count = parseInt(cartCounter.innerText);
+      cartCounter.innerText = count + 1;
+    }
+    function minusToCart() {
+      const cartCounter = document.getElementById('cart-counter');
+      const count = parseInt(cartCounter.innerText);
+      if (count > 0) {
+        cartCounter.innerText = count - 1;
       }
-        document.body.after(div);
-        console.log(div);
-       
-  const addToCartBtn = document.getElementById('add-to-cart');
-  const minusBtn = document.getElementById('minus-to-cart');
-  const plusBtn = document.getElementById('plus-to-cart');
-  addToCartBtn.addEventListener('click', addToCart);
-  minusBtn.addEventListener('click', minusToCart);
-  plusBtn.addEventListener('click', plusToCart);
-  
-  function addToCart() {
-    const cartCounter = document.getElementById('cart-counter');
-    const count = parseInt(cartCounter.innerText);
-    cartCounter.innerText = count + 1;
-  }
-  function minusToCart() {
-    const cartCounter = document.getElementById('cart-counter');
-    const count = parseInt(cartCounter.innerText);
-    if(count>0){
-    cartCounter.innerText = count - 1;
     }
-  }
-  function plusToCart() {
-    const cartCounter = document.getElementById('cart-counter');
-    const count = parseInt(cartCounter.innerText);
-    if(count>=1){
-    cartCounter.innerText = count + 1;
+    function plusToCart() {
+      const cartCounter = document.getElementById('cart-counter');
+      const count = parseInt(cartCounter.innerText);
+      if (count >= 1) {
+        cartCounter.innerText = count + 1;
+      }
     }
-  }
-  
-  function display(){
-    const addToCartBt = document.getElementById('cartId');
-    if(addToCartBt){
-    console.log(addToCartBt);
-      window.location.href = "selectedProduct.html";
+
+    function display() {
+      const addToCartBt = document.getElementById('cartId');
+      if (addToCartBt) {
+        console.log(addToCartBt);
+        window.location.href = "selectedProduct.html";
+      }
+
     }
-  
+    function create() {
+     // var div = document.getElementById('inventory-list');
+
+      div.innerHTML = "";
+      for (let elem of obj) {
+        div.innerHTML += `
+						<div style="display:flex;gap:10px;flex-wrap:wrap;">
+							<img src="projectCS315/imageCollection/living room furniture/${elem.image}" style="height:100px;width:100px;object-fit: cover;">
+							<div>
+								<div>${elem.name}</div>
+								<p>${elem.category}</p>
+								<p>$${elem.price}</p>
+								<p>${elem.ratings}</p>
+                <button class="minusBtn" id="minus-to-cart">-</button>
+                <button class="plusBtn" id="plus-to-cart">+</button>
+                <button class="mainBtn" id="add-to-cart">Add To cart</button>
+							</div>
+						</div>
+					`;
+      }
+    }
+
+    function compare() {
+      let newlist = obj.sort((a, b) => (a.name > b.name) ? 1 : -1);
+      create(newlist);
+      
+  const minusBtns = document.getElementsByClassName('minusBtn');
+  const plusBtns = document.getElementsByClassName('plusBtn');
+  const addToCartBtns = document.getElementsByClassName('mainBtn');
+
+  for (let i = 0; i < minusBtns.length; i++) {
+    minusBtns[i].addEventListener('click', minusToCart);
   }
-  
-  
+
+  for (let i = 0; i < plusBtns.length; i++) {
+    plusBtns[i].addEventListener('click', plusToCart);
+  }
+
+  for (let i = 0; i < addToCartBtns.length; i++) {
+    addToCartBtns[i].addEventListener('click', addToCart);
+  }
+}
+
+   
+
+
   </script>
- 
+
 </body>
 
 </html>
