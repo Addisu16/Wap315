@@ -1,75 +1,197 @@
 <!DOCTYPE html>
+
 <html>
-  <head>
-    <title>Inventory Items</title>
-  </head>
-  <script>
-    // Parse the 'inventory' item from localStorage
-    var obj = JSON.parse(localStorage.getItem('inventory'));
-      console.log(obj);
-      var div = document.getElementById('inventory-list');
-      for (let value of obj) {
-        let img = document.createElement('img');
-        let div1 = document.createElement('div');
-        for (let prop in value) {
-          if (prop === 'image') {
-            img.src = "/projectCS315/imageCollection/" + value[prop];
-          } else {
-            div1.innerHTML += prop + ': ' + value[prop] + '<br>';
-          }
-        }
-        div.append(img);
-        div.append(div1);
-      }
-  </script>
-  <body>
-    <div id="inventory-list">
-    </div>
 
+<head>
+    <title>Customer Items</title>
+</head>
+<script>
+
+  // Parse the 'inventory' item from localStorage
+window.onload=function(){
+
+
+  var obj = JSON.parse(localStorage.getItem('inventory'));
+  console.log(obj);
+  var div = document.createElement('div');
+  //for (let value of obj) {
     
+    for (let value in obj) {
+      
+      let img = document.createElement('img');
+      if (value === 'image') {
+        img.src = "projectCS315/imageCollection/" +obj[value];
+        div.before(img);
 
-<div>
-  <div style="border:1px solid rgb(206, 201, 201);background-color: rgb(205, 199, 199);">
-
+      }
   
-  <div style="display:flex;gap:20px;margin-left:500px;padding: 10px;color: rgb(30, 30, 184);font-weight:20px;">
-  <label>While Supplies Last</label>
-  <label>Treasure new</label>
-  <label>What's new</label>
-  <label>Same-Day</label>
-  <label>Online-only</label>
-  <label>Warehouse-Savings</label>
-  <label>Get Email Offers</label>
-  <label>Customer Service</label>
-  <select style="font-weight: 10px;color:rgba(0, 0, 255, 0.867);">
-    <option value="">US</option>
-  </select>
-</div>
+    }
+      document.body.after(div);
+      console.log(div);
+     
+const addToCartBtn = document.getElementById('add-to-cart');
+const minusBtn = document.getElementById('minus-to-cart');
+const plusBtn = document.getElementById('plus-to-cart');
+addToCartBtn.addEventListener('click', addToCart);
+minusBtn.addEventListener('click', minusToCart);
+plusBtn.addEventListener('click', plusToCart);
 
-<div style="display:flex;gap:40px;margin:10px;">
-  <div>
-    <img src="https://www.costco.com/wcsstore/CostcoGLOBALSAS/images/Costco_Logo-1.png" alt="" style="width:200px;margin-left:20px;margin-top:-10px!important;">
+function addToCart() {
+  const cartCounter = document.getElementById('cart-counter');
+  const count = parseInt(cartCounter.innerText);
+  cartCounter.innerText = count + 1;
+}
+function minusToCart() {
+  const cartCounter = document.getElementById('cart-counter');
+  const count = parseInt(cartCounter.innerText);
+  if(count>0){
+  cartCounter.innerText = count - 1;
+  }
+}
+function plusToCart() {
+  const cartCounter = document.getElementById('cart-counter');
+  const count = parseInt(cartCounter.innerText);
+  if(count>=1){
+  cartCounter.innerText = count + 1;
+  }
+}
+}
+
+</script>
+
+<body>
+  <!--   <div id="inventory-list">
+     </div> -->
+    <div>
+        <div style="border:1px solid rgb(206, 201, 201);background-color: rgb(243, 236, 236);">
+            <div
+        style="display:flex;gap:20px;justify-content: right;padding: 10px;color: rgb(30, 30, 184);font-weight:20px;">
+                <label>While Supplies Last</label>
+
+                <label>Treasure new</label>
+
+                <label>What's new</label>
+
+                <label>Same-Day</label>
+
+                <label>Online-only</label>
+
+                <label>Warehouse-Savings</label>
+
+                <label>Get Email Offers</label>
+
+                <label>Customer Service</label>
+
+        <select style="font-weight: 10px;color:rgba(0, 0, 255, 0.867);">
+
+                    <option value="">US</option>
+                  </select>
+            
+      </div>
+            <div style="display:flex;gap:15px;margin:10px; color: blue;">
+
+                <div>
+                    <img src="https://www.costco.com/wcsstore/CostcoGLOBALSAS/images/Costco_Logo-1.png" alt=""          
+              style="width:200px;margin-left:20px;margin-top:-10px!important;">
+
+                  </div>
+                <div>
+                    <input type="text" placeholder="search"            
+            style="margin-left:60px;width: 600px;height:30px;color: rgb(30, 30, 184);font-weight:20px;">
+
+                  </div>
+
+                <div>
+                    <label for="">Sign In/Register</label>
+
+                    <label for="">|</label>
+
+                    <label for="">Orders & Returns</label>
+
+                  </div>
+
+                <div>
+          <p>Cart: <span id="cart-counter">0</span></p>
+                    <img src="https://img.icons8.com/doodle/1x/shopping-cart.png" alt="" style="width:20px;"><label    
+                    for="">Cart</label>
+
+                  </div>
+
+              </div>
+
+          </div>
+
+        <div      
+      style="display: flex;gap:20px;border: solid blue 1px; padding: 10px; color:white; background-color: rgba(4, 56, 141, 0.6); padding-left: 40px;">
+
+            <label for="">Shop</label>
+
+            <label for="">Grocery</label>
+
+            <label for="">Deals</label>
+
+            <label for="">Business Delivery</label>
+
+            <label for="">Optical</label>
+
+            <label for="">Pharmacy</label>
+
+            <label for="">Service</label>
+
+            <label for="">Photo</label>
+
+            <label for="">Travel</label>
+
+            <label for="">Membership</label>
+
+            <label for="">Locations</label>
+
+          </div>
+        <div      
+      style="display: flex; justify-content: space-between;border-bottom: 1px solid gray; padding:10px;background-color:rgb(244, 237, 237) ;">
+
+            <div style="display: flex;gap:20px">
+                <div>My Warehouse
+                    <div style="font-weight: bold;"> <img src="https://img.icons8.com/windows/2x/marker.png" alt=""    
+                        style="width:15px;"> Coralville</div>
+                    <div style="color:red; margin-left:20px;">Closed:open 10:00 AM Wednesday</div>
+                  </div>
+                <div>
+                    Delivery Location
+                    <div style="font-weight: bold;"><img              
+              src="https://img.freepik.com/free-icon/box-closed_318-48060.jpg?size=626&ext=jpg" alt=""              
+              style="width: 15px;"> 52556</div>
+                  </div>
+              </div>
+            <div>
+                <div style="color: blue;">
+
+                    Lists/ Buy Again
+
+                  </div>
+
+              </div>
+
+          </div>
+
+      </div>
+
+
+<!--Button to add to cart-->
+
+    <div class="main">
+      <div class="btn">
+
+          <!-- Button to add item to cart -->
+          <button class="mainBtn" id="add-to-cart">Add To cart</button>
+          <button class="minusBtn" id="minus-to-cart">-</button>
+          <button class="plusBtn" id="plus-to-cart">+</button>
+         
+
+      </div>
   </div>
-  <div>
-    <input type="text" placeholder="search" style="margin-left:60px;width: 800px;height:30px;color: rgb(30, 30, 184);font-weight:20px;">
-  </div>
-  <div>
-  <label for="">Account</label>
-  <label for="">|</label>
-  <label for="">Orders&Returns</label>
-  </div>
-  <div>
-    <img src="https://img.icons8.com/doodle/1x/shopping-cart.png" alt="" style="width:20px;"><label for="">Cart</label>
-  </div>
-</div>
-</div>
 
+ 
+</body>
 
-
-
-
-</div>
-
-
-  </body>
 </html>

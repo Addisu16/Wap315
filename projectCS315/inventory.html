@@ -13,7 +13,7 @@
             border: 1px solid #dddddd;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
         }
-        
+
         th {
             background-color: #f5f5f5;
             font-size: 12px;
@@ -21,33 +21,33 @@
             text-align: left;
             padding: 15px;
         }
-        
+
         td {
             font-size: 12px;
             text-align: left;
             padding: 15px;
         }
-        
+
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
-        
+
         tr:hover {
             background-color: #e6e6e6;
         }
     </style>
-    
+
     <script>
-        
-        
-        var prodcutArray=[];
+
+
+        var prodcutArray = [];
         console.log(prodcutArray);
-       
+
         // //Set Item on every change to the object array, add, delete and edit
         //  localStorage.setItem('inventory', JSON.stringify(prodcutArray));
         function add() {
             //itemName:name,
-        
+
             let itemName = document.getElementById('itemName').value;
             let itemCategory = document.getElementById('category').value;
             let itemQuantity = document.getElementById('quantity').value;
@@ -57,12 +57,9 @@
             let itemProductID = document.getElementById('itemProductID').value;
             let itemImage = document.getElementById('itemImage').value;
             let itemRatings = document.getElementById('itemRatings').value;
-            prodcutArray.push({ name: itemName,price:itemPrice,brand:itemBrand,Description:itemDescription,image:itemImage,ratings:itemRatings });
-            localStorage.setItem('inventory',JSON.stringify(prodcutArray));
+            prodcutArray.push({ name: itemName, category: itemCategory, quantity: itemQuantity, price: itemPrice, brand: itemBrand, Description: itemDescription, productId: itemProductID, image: itemImage, ratings: itemRatings });
+            localStorage.setItem('inventory', JSON.stringify(prodcutArray));
             let newRow = document.createElement('tr')
-         
-
-
 
             newRow.innerHTML = `<td for="itemName">${itemName}</td>
     <td for="itemCategory">${itemCategory}</td>
@@ -77,48 +74,48 @@
     <td><button onclick="deleteRow(this);">Delete</button></td>`;
             let table = document.getElementById('myTable');
             table.append(newRow);
-           
+
         }
         function editRow(self) {
             let parent = self.parentElement.parentElement;
             for (let i = 0; i < parent.children.length; i++) {
-                if (parent.children[i].getAttribute('for') == 'itemName'){
-                document.getElementById('itemName').value=parent.children[i].innerHTML; 
-                parent.remove();
-                 } else if (parent.children[i].getAttribute('for') == 'itemCategory'){
+                if (parent.children[i].getAttribute('for') == 'itemName') {
+                    document.getElementById('itemName').value = parent.children[i].innerHTML;
+                    parent.remove();
+                } else if (parent.children[i].getAttribute('for') == 'itemCategory') {
                     document.getElementById('category').value = parent.children[i].innerHTML;
                     parent.remove();
-                 }else if (parent.children[i].getAttribute('for') == 'itemQuantity'){
+                } else if (parent.children[i].getAttribute('for') == 'itemQuantity') {
                     document.getElementById('quantity').value = parent.children[i].innerHTML;
                     parent.remove();
-                 }else if (parent.children[i].getAttribute('for') == 'itemPrice'){
+                } else if (parent.children[i].getAttribute('for') == 'itemPrice') {
                     document.getElementById('price').value = parent.children[i].innerHTML;
                     parent.remove();
-                 }else if (parent.children[i].getAttribute('for') == 'itemBrand'){
+                } else if (parent.children[i].getAttribute('for') == 'itemBrand') {
                     document.getElementById('brand').value = parent.children[i].innerHTML;
                     parent.remove();
-                 }else if (parent.children[i].getAttribute('for') == 'itemDescription'){
+                } else if (parent.children[i].getAttribute('for') == 'itemDescription') {
                     document.getElementById('itemDescription').value = parent.children[i].innerHTML;
                     parent.remove();
-                 }else if (parent.children[i].getAttribute('for') == 'itemProductID'){
+                } else if (parent.children[i].getAttribute('for') == 'itemProductID') {
                     document.getElementById('itemProductID').value = parent.children[i].innerHTML;
                     parent.remove();
-                  } else if (parent.children[i].getAttribute('for') == 'itemImage'){
+                } else if (parent.children[i].getAttribute('for') == 'itemImage') {
                     document.getElementById('itemImage').value = parent.children[i].innerHTML;
                     parent.remove();
-                  }else if (parent.children[i].getAttribute('for') == 'itemRatings'){
+                } else if (parent.children[i].getAttribute('for') == 'itemRatings') {
                     document.getElementById('itemRatings').value = parent.children[i].innerHTML;
                     parent.remove();
 
+                }
             }
         }
-    }
 
         function deleteRow(self) {
             let parent = self.parentElement.parentElement;
             parent.remove();
         }
-        
+
     </script>
 </head>
 
@@ -128,25 +125,26 @@
         Welcome to the Inventory Page
         in this page you can add,edit and delete your items.
     </header><br>
-    <div style="margin:10px;padding:40px;border:10 solid 2px;border:2px solid green;width:250px;height:300px;border-radius: 40px;">
-    Name:<input type="text" id='itemName' />
-    Category:<input type="text" id='category' />
-    Quantity:<input type="text" id='quantity' />
-    Price:<input type="text" id='price' />
-    Brand:<input type="text" id='brand' />
-    Description:<input type="text" id='itemDescription' />
-    ProductID:<input type="text" id='itemProductID' value="" />
-    Image:<input type="text" id='itemImage' />
-    <select id='itemRatings' class="rating">
-        Ratings
-        <option value="1">★</option>
-        <option value="2">★★</option>
-        <option value="3">★★★</option>
-        <option value="4">★★★★</option>
-        <option value="5">★★★★★</option>
-    </select>
-    <button onclick="add();">Add</button>
-</div>
+    <div
+        style="margin:10px;padding:40px;border:10 solid 2px;border:2px solid green;width:250px;height:300px;border-radius: 40px;">
+        Name:<input type="text" id='itemName' />
+        Category:<input type="text" id='category' />
+        Quantity:<input type="text" id='quantity' />
+        Price:<input type="text" id='price' />
+        Brand:<input type="text" id='brand' />
+        Description:<input type="text" id='itemDescription' />
+        ProductID:<input type="text" id='itemProductID' value="" />
+        Image:<input type="text" id='itemImage' />
+        <select id='itemRatings' class="rating">
+            Ratings
+            <option value="1">★</option>
+            <option value="2">★★</option>
+            <option value="3">★★★</option>
+            <option value="4">★★★★</option>
+            <option value="5">★★★★★</option>
+        </select>
+        <button onclick="add();">Add</button>
+    </div>
     <table id='myTable'>
         <tr>
             <th>Name</th>
@@ -165,3 +163,8 @@
 </body>
 
 </html>
+
+
+
+
+
