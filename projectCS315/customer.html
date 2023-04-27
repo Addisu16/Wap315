@@ -143,19 +143,13 @@
       <div> <label for=""><h3>filter </h3></label> 
       </div>
       
-      <select name="" id="filter" onchange="filterProducts()">
-        <option value="Categoryf" > Category</option>
-        <option value="min-rating">min Rating</option>
-        <option value="max-rating"> max Rating</option>
-        <option value="brandf"> Brand</option>
-        <option value="min-price"> min-price</option>
-        <option value="max-price">max- price</option>
-        <option value="clear"> clear all filter</option>
-
-      </select>
-
-
-      <button onclick="clearFilter()">clearFilter</button>
+      
+        <div style="display:flex;flex-direction: column;" id="inputs">
+          <label for=""><input type="checkbox" value="500-1000">500-1000</label>
+        <input type="checkbox" value="1000-1500"><label for="">1000-1500</label>
+        <input type="checkbox" value="1500-2000"><label for="">1500-2000</label>
+        <input type="checkbox" value="2000-4000"><label for="">2000-4000</label>
+        </div>
       
       </div>
 
@@ -220,8 +214,8 @@
       cartCounter.innerText = count + 1;
       let itemName = document.getElementById('nameSection').innerText;
       let itemPrice = document.getElementById('priceSection').innerHTML;
-      let itemImageId = event.target.parentNode.parentNode.childNodes.getAttribute('id');
-      let itemImage = document.getElementById(itemImageId).getAttribute('value');
+      // let itemImageId = event.target.parentNode.parentNode.childNodes.getAttribute('id');
+      // let itemImage = document.getElementById(itemImageId).getAttribute('value');
       let itemRatings = document.getElementById('ratingSection').innerHTML;
       selected.push({name:itemName,price:itemPrice,ratings:itemRatings});
       localStorage.setItem('customer', JSON.stringify(selected));
@@ -252,7 +246,7 @@
       }
 
     }
-    function create() {
+    function create(obj) {
      var div = document.getElementById('inventory-list');
 
       div.innerHTML = "";
@@ -272,35 +266,7 @@
 						</div>
 					`;
       }
-    }
-// const lowToHigh = document.getElementById('lowToHigh');
-// lowToHigh.addEventListener('change', compare);
-
-// const highToLow = document.getElementById('highToLow');
-
-// highToLow.addEventListener('change', compare);
-
-
-function compare() {
-    const selectElement = document.getElementById('sort-select');
-    console.log(selectElement);
-    const selectedOption = selectElement.value;
-
-    let createList;
-    if (selectedOption === 'lowToHigh') {
-      createList = obj.sort((a, b) => a.price - b.price);
-    } else if (selectedOption === 'highToLow') {
-      createList = obj.sort((a, b) => b.price - a.price);
-    } else if (selectedOption === 'ratings') {
-      createList = obj.sort((a, b) => b.ratings - a.ratings);
-    } else if (selectedOption === 'name') {
-      createList = obj.sort((a, b) => b.name - a.name);
-    } else {
-      createList = obj;
-    }
-    create(createList);
-      
-  const minusBtns = document.getElementsByClassName('minusBtn');
+      const minusBtns = document.getElementsByClassName('minusBtn');
   const plusBtns = document.getElementsByClassName('plusBtn');
   const addToCartBtns = document.getElementsByClassName('mainBtn');
 
@@ -315,23 +281,79 @@ function compare() {
   for (let i = 0; i < addToCartBtns.length; i++) {
     addToCartBtns[i].addEventListener('click', addToCart);
   }
+
+    }
+// const lowToHigh = document.getElementById('lowToHigh');
+// lowToHigh.addEventListener('change', compare);
+
+// const highToLow = document.getElementById('highToLow');
+
+// highToLow.addEventListener('change', compare);
+
+let selecte = document.querySelectorAll('#inputs input');
+//console.log(selecte);
+  for (const select of selecte) {
+    
+      if (select.checked) {
+        filterItems();
+      }
+    
+  }
+
+
+function filterItems() {
+  let filters = ["500-1000","1000-1500","1500-2000","2000-4000"];
+  filters = filters.map(filter => filter.split("-").map(x => parseInt(x)));
+  let tempObj = obj;
+  for(let filter of filters) {
+    tempObj = tempObj.filter(obji => parseInt(obji.price) >= filter[0] && parseInt(obji.price) <= filter[1]);
+  }
+  create(tempObj);
 }
 
-function filterProducts() {
+function compare() {
+    const selectElement = document.getElementById('sort-select');
+    console.log(selectElement);
+    const selectedOption = selectElement.value;
+
+    let createList;
+    if (selectedOption === 'lowToHigh') {
+       obj.sort((a, b) => a.price - b.price);
+    } else if (selectedOption === 'highToLow') {
+       obj.sort((a, b) => b.price - a.price);
+    } else if (selectedOption === 'ratings') {
+      obj.sort((a, b) => b.ratings - a.ratings);
+    } else if (selectedOption === 'name') {
+      obj.sort((a, b) => b.name - a.name);
+    } else {
+      obj;
+    }
+    create(obj); 
+  
+}
+
+// function filterProducts() {
 //   const minPriceFilter = document.getElementById('min-price');
 // let selectedFilter=minPriceFilter.value;
 // const filteredProducts = obj.filter(product => {
 //   return (product.price<1300 && selectedFilter==='min-price')
 // });
-create(filteredProducts);
+// create(filteredProducts);
+
 function filterProducts() {
-  const minPriceFilter = document.getElementById('min-price');
-  let selectedFilter = minPriceFilter.value;
+  const selectedFilter = document.querySelector('#filter option:checked');
+  const selectedOption = selectedFilter.value;
+  let minPrice=0;
+  if(selectedOption==='1300'){
+    minPrice = parseInt(document.getElementById('min-price').value);
+  }
+
   const filteredProducts = obj.filter(product => {
-    return (product.price < selectedFilter);
+    return product.price >= minPrice;
   });
   create(filteredProducts);
 }
+ 
 //   const brandFilter = document.getElementById('brandf').value;
 
 //   const categoryFilter = document.getElementById('categoryf').value;
@@ -393,7 +415,6 @@ function filterProducts() {
 
  
 
-}
 
 function clearFilter(){
   const brandFilter = document.getElementById('brandf').value='';

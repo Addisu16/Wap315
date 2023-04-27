@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+<body>
+    <select name="" id="filter" onchange="filterProducts()">
+        <option value="Categoryf" > Category</option>
+        <option value="min-rating">min Rating</option>
+        <option value="max-rating"> max Rating</option>
+        <option value="brandf"> Brand</option>
+        <option value="1300" id="min-price">min-price</option>
+        <option value="max-price">max- price</option>
+        <option value="clear"> clear all filter</option>
+
+      </select>
+      <script>
+      function filterProducts() {
+        const selectedFilter = document.querySelector('#filter option:checked');
+        const selectedOption = selectedFilter.value;
+        const minPrice = parseInt(document.getElementById('min-price').value);
+        const filteredProducts = obj.filter(product => {
+          return product.price >= minPrice;
+        });
+        create(filteredProducts);
+        
+    }
+</script>
+</body>
+</html>
