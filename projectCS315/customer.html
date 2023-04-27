@@ -184,13 +184,16 @@
     console.log(selected);
 
     function addToCart() {
+      
+
       const cartCounter = document.getElementById('cart-counter');
       const count = parseInt(cartCounter.innerText);
       cartCounter.innerText = count + 1;
-      let itemName = document.getElementById('nameSection').value;
-      let itemPrice = document.getElementById('priceSection').value;
-      let itemImage = document.getElementById('imageSection').value;
-      let itemRatings = document.getElementById('ratingSection').value;
+      let itemName = document.getElementById('nameSection').innerText;
+      let itemPrice = document.getElementById('priceSection').innerHTML;
+      let itemImageId = event.target.parentNode.parentNode.childNodes.getAttribute('id');
+      let itemImage = document.getElementById(itemImageId).getAttribute('value');
+      let itemRatings = document.getElementById('ratingSection').innerHTML;
       selected.push({image:itemImage,name:itemName,price:itemPrice,ratings:itemRatings});
       localStorage.setItem('customer', JSON.stringify(selected));
 
@@ -224,12 +227,10 @@
      // var div = document.getElementById('inventory-list');
 
       div.innerHTML = "";
-
       for (let elem of obj) {
-        console.log(elem.image);
         div.innerHTML += `
 						<div style="display:flex;gap:10px;flex-wrap:wrap;">
-							<img src="projectCS315/imageCollection/${elem.image}" id="imageSection" style="height:100px;width:100px;object-fit: cover;">
+							<img src="/projectCS315/imageCollection/${elem.image}" id="imageSection" value="${elem.image}" style="height:100px;width:100px;object-fit: cover;">
 							<div>
 								<div id="nameSection">${elem.name}</div>
 								<p id="categorySection">${elem.category}</p>

@@ -128,16 +128,16 @@
 
       <script>
   var obj = JSON.parse(localStorage.getItem('customer'));
-  console.log(obj);
+
   create(obj);
-function create() {
+function create(obj) {
   var newDiv = document.getElementById('selected');
   newDiv.innerHTML = "";
   for (let elem of obj) {
     newDiv.innerHTML += `
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <img src="projectCS315/imageCollection/${elem.image}" style="height:100px;width:100px;object-fit: cover;">
-        <div>
+       <div> <img src="imageCollection/${elem.image}" style="height:100px;width:100px;object-fit: cover;">
+        
           <div>${elem.name}</div>
           <p>${elem.price}</p>
           <p>${elem.ratings}</p>
