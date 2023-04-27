@@ -32,6 +32,10 @@
         <select style="font-weight: 10px;color:rgba(0, 0, 255, 0.867);">
 
                     <option value="">US</option>
+                    <option value="">CANADA</option>
+                    <option value="">UK</option>
+                  
+
                   </select>
            
       </div>
@@ -59,7 +63,7 @@
 
                 <div>
           <div id="cartId">
-            <button onclick="display()"> <span type="button" id="cart-counter">0</span><img
+            <button onclick="display()" style="border-radius: 15px;"> <span type="button" id="cart-counter" >0</span><img
                 src="https://img.icons8.com/doodle/1x/shopping-cart.png" alt="" style="width:20px;"></button>
           </div>
 
@@ -176,11 +180,20 @@
     addToCartBtns[i].addEventListener('click', addToCart);
   }
 
+    let selected=[];
+    console.log(selected);
 
     function addToCart() {
       const cartCounter = document.getElementById('cart-counter');
       const count = parseInt(cartCounter.innerText);
       cartCounter.innerText = count + 1;
+      let itemName = document.getElementById('nameSection').value;
+      let itemPrice = document.getElementById('priceSection').value;
+      let itemImage = document.getElementById('imageSection').value;
+      let itemRatings = document.getElementById('ratingSection').value;
+      selected.push({image:itemImage,name:itemName,price:itemPrice,ratings:itemRatings});
+      localStorage.setItem('customer', JSON.stringify(selected));
+
     }
     function minusToCart() {
       const cartCounter = document.getElementById('cart-counter');
@@ -211,15 +224,17 @@
      // var div = document.getElementById('inventory-list');
 
       div.innerHTML = "";
+
       for (let elem of obj) {
+        console.log(elem.image);
         div.innerHTML += `
 						<div style="display:flex;gap:10px;flex-wrap:wrap;">
-							<img src="projectCS315/imageCollection/living room furniture/${elem.image}" style="height:100px;width:100px;object-fit: cover;">
+							<img src="projectCS315/imageCollection/${elem.image}" id="imageSection" style="height:100px;width:100px;object-fit: cover;">
 							<div>
-								<div>${elem.name}</div>
-								<p>${elem.category}</p>
-								<p>${elem.price}</p>
-								<p>${elem.ratings}</p>
+								<div id="nameSection">${elem.name}</div>
+								<p id="categorySection">${elem.category}</p>
+								<p id="priceSection">${elem.price}</p>
+								<p id="ratingSection">${elem.ratings}</p>
                 <button class="minusBtn" id="minus-to-cart">-</button>
                 <button class="plusBtn" id="plus-to-cart">+</button>
                 <button class="mainBtn" id="add-to-cart">Add To cart</button>
@@ -246,6 +261,8 @@ function compare() {
       createList = obj.sort((a, b) => b.price - a.price);
     } else if (selectedOption === 'ratings') {
       createList = obj.sort((a, b) => b.ratings - a.ratings);
+    } else if (selectedOption === 'name') {
+      createList = obj.sort((a, b) => b.name - a.name);
     } else {
       createList = obj;
     }

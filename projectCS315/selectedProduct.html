@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 <body>
 <!-- <a href ="shoppingCart.html"><img src="../images/productPage.png" style="width:75%"/></a> -->
@@ -116,9 +117,62 @@
                     </div>
   
                 </div>
-  
+  <div id="selected">
+
+  </div>
             </div>
   
         </div>
+
+
+
+      <script>
+  var obj = JSON.parse(localStorage.getItem('customer'));
+  console.log(obj);
+  create(obj);
+function create() {
+  var newDiv = document.getElementById('selected');
+  newDiv.innerHTML = "";
+  for (let elem of obj) {
+    newDiv.innerHTML += `
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <img src="projectCS315/imageCollection/${elem.image}" style="height:100px;width:100px;object-fit: cover;">
+        <div>
+          <div>${elem.name}</div>
+          <p>${elem.price}</p>
+          <p>${elem.ratings}</p>
+         
+        </div>
+      </div>
+    `;
+  }
+}
+
+
+
+      //   let obj1=JSON.parse(localStorage.getItem('selectedItem'));
+      //   console.log(obj1);
+      //   function create() {
+      //  var newDiv = document.getElementById('selected');
+      //   newDiv.innerHTML = "";
+      //   for (let elem of obj1) {
+    
+      //   newDiv.innerHTML += `
+      //         <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      //           <img src="projectCS315/imageCollection/${elem.image}" style="height:100px;width:100px;object-fit: cover;">
+      //           <div>
+      //             <div>${elem.name}</div>
+      //             <p>${elem.price}</p>
+      //             <p>${elem.ratings}</p>
+      //             <button class="minusBtn" id="minus-to-cart">-</button>
+      //             <button class="plusBtn" id="plus-to-cart">+</button>
+      //             <button class="mainBtn" id="add-to-cart">Add To cart</button>
+      //           </div>
+      //         </div>
+      //       `;
+      //   }
+      // }
+      // create(obj1);
+      </script>
 </body>
 </html>
