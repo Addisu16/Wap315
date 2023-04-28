@@ -266,10 +266,9 @@
 						</div>
 					`;
       }
-      const minusBtns = document.getElementsByClassName('minusBtn');
+  const minusBtns = document.getElementsByClassName('minusBtn');
   const plusBtns = document.getElementsByClassName('plusBtn');
   const addToCartBtns = document.getElementsByClassName('mainBtn');
-
   for (let i = 0; i < minusBtns.length; i++) {
     minusBtns[i].addEventListener('click', minusToCart);
   }
@@ -293,6 +292,16 @@
 
 
 function filterItems() {
+  let filters = [...document.querySelectorAll('#inputs input:checked')].map(checkBox => checkBox.value);
+  console.log(filters)
+  filters = filters.map(filter => filter.split("-").map(x => parseInt(x)));
+  let tempObj = [];
+  for(let filter of filters) {
+    tempObj = [...tempObj, ...obj.filter(obji => parseInt(obji.price) >= filter[0] && parseInt(obji.price) <= filter[1])];
+  }
+  create(tempObj);
+}
+function filterItemsByCategorey() {
   let filters = [...document.querySelectorAll('#inputs input:checked')].map(checkBox => checkBox.value);
   console.log(filters)
   filters = filters.map(filter => filter.split("-").map(x => parseInt(x)));
